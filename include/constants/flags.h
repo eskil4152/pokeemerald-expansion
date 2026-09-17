@@ -51,16 +51,16 @@
 
 #else
 
-#define FLAG_UNUSED_0x020    0x20 // Unused Flag
-#define FLAG_UNUSED_0x021    0x21 // Unused Flag
-#define FLAG_UNUSED_0x022    0x22 // Unused Flag
-#define FLAG_UNUSED_0x023    0x23 // Unused Flag
-#define FLAG_UNUSED_0x024    0x24 // Unused Flag
-#define FLAG_UNUSED_0x025    0x25 // Unused Flag
-#define FLAG_UNUSED_0x026    0x26 // Unused Flag
-#define FLAG_UNUSED_0x027    0x27 // Unused Flag
-#define FLAG_UNUSED_0x028    0x28 // Unused Flag
-#define FLAG_UNUSED_0x029    0x29 // Unused Flag
+#define FLAG_SANDBOX_NO_WHITEOUT 0x20 // Sandbox menu toggle (src/sandbox.c)
+#define FLAG_SANDBOX_NOCLIP      0x21 // Sandbox menu toggle (src/sandbox.c)
+#define FLAG_SANDBOX_NO_ENCOUNTERS 0x22 // Sandbox menu toggle (src/sandbox.c)
+#define FLAG_SANDBOX_TRAINERS_BLIND 0x23 // Sandbox menu toggle (src/sandbox.c)
+#define FLAG_SANDBOX_EXP_SHARE   0x24 // Sandbox menu toggle (src/sandbox.c)
+#define FLAG_SANDBOX_INFINITE_MONEY 0x25 // Sandbox menu toggle (src/sandbox.c)
+#define FLAG_SANDBOX_AUTO_HEAL   0x26 // Sandbox menu toggle (src/sandbox.c)
+#define FLAG_SANDBOX_INSTANT_TEXT 0x27 // Sandbox menu toggle (src/sandbox.c)
+#define FLAG_SANDBOX_ALWAYS_SHINY 0x28 // Sandbox menu toggle (src/sandbox.c)
+#define FLAG_SANDBOX_FLY_ANYWHERE 0x29 // Sandbox menu toggle (src/sandbox.c)
 #define FLAG_UNUSED_0x02A    0x2A // Unused Flag
 #define FLAG_UNUSED_0x02B    0x2B // Unused Flag
 #define FLAG_UNUSED_0x02C    0x2C // Unused Flag

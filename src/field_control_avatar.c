@@ -12,6 +12,7 @@
 #include "event_scripts.h"
 #include "fieldmap.h"
 #include "field_control_avatar.h"
+#include "sandbox.h"
 #include "field_message_box.h"
 #include "field_move.h"
 #include "field_effect.h"
@@ -182,6 +183,7 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
         return TRUE;
     if (input->tookStep)
     {
+        Sandbox_OnPlayerStep();
         IncrementGameStat(GAME_STAT_STEPS);
         IncrementBirthIslandRockStepCount();
         DespawnAllOverworldWildEncounters(OWE_GENERATED, WILD_CHECK_REPEL);
