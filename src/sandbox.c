@@ -41,6 +41,7 @@ enum SandboxRow
     ROW_INSTANT_TEXT,
     ROW_ALWAYS_SHINY,
     ROW_FLY_ANYWHERE,
+    ROW_FOLLOWERS,
     ROW_TOGGLE_COUNT,
     ROW_ALL_ON = ROW_TOGGLE_COUNT,
     ROW_ALL_OFF,
@@ -60,6 +61,7 @@ static const struct ListMenuItem sSandboxListItems[ROW_COUNT] =
     [ROW_INSTANT_TEXT]   = { COMPOUND_STRING("Instant Text"),     ROW_INSTANT_TEXT },
     [ROW_ALWAYS_SHINY]   = { COMPOUND_STRING("Always Shiny"),     ROW_ALWAYS_SHINY },
     [ROW_FLY_ANYWHERE]   = { COMPOUND_STRING("Fly From Map"),     ROW_FLY_ANYWHERE },
+    [ROW_FOLLOWERS]      = { COMPOUND_STRING("Following Pokémon"), ROW_FOLLOWERS },
     [ROW_ALL_ON]         = { COMPOUND_STRING("All ON"),           ROW_ALL_ON },
     [ROW_ALL_OFF]        = { COMPOUND_STRING("All OFF"),          ROW_ALL_OFF },
     [ROW_CLOSE]          = { COMPOUND_STRING("Close"),            ROW_CLOSE },
@@ -77,6 +79,7 @@ static const u16 sSandboxRowFlags[ROW_TOGGLE_COUNT] =
     [ROW_INSTANT_TEXT]   = FLAG_SANDBOX_INSTANT_TEXT,
     [ROW_ALWAYS_SHINY]   = FLAG_SANDBOX_ALWAYS_SHINY,
     [ROW_FLY_ANYWHERE]   = FLAG_SANDBOX_FLY_ANYWHERE,
+    [ROW_FOLLOWERS]      = FLAG_SANDBOX_FOLLOWERS_OFF, // inverted: flag set means followers OFF
 };
 
 #define SANDBOX_MENU_WIDTH  20
@@ -104,6 +107,7 @@ static void Task_SandboxMenuInput(u8 taskId);
 static void PrintRowStatus(u8 windowId, u32 row, u8 y);
 static void CloseSandboxMenu(u8 taskId);
 static void ApplyToggleSideEffects(u32 row);
+static bool32 IsRowOn(u32 row);
 
 void Sandbox_ShowMenu(void)
 {
@@ -150,7 +154,7 @@ static void PrintRowStatus(u8 windowId, u32 row, u8 y)
     if (row >= ROW_TOGGLE_COUNT)
         return;
 
-    status = FlagGet(sSandboxRowFlags[row]) ? sText_On : sText_Off;
+    status = IsRowOn(row) ? sText_On : sText_Off;
     AddTextPrinterParameterized(windowId, FONT_NORMAL, status, SANDBOX_STATUS_X, y, TEXT_SKIP_DRAW, NULL);
 }
 
@@ -183,7 +187,7 @@ static void Task_SandboxMenuInput(u8 taskId)
         break;
     default:
         FlagToggle(sSandboxRowFlags[input]);
-        PlaySE(FlagGet(sSandboxRowFlags[input]) ? SE_PC_LOGIN : SE_PC_OFF);
+        PlaySE(IsRowOn(input) ? SE_PC_LOGIN : SE_PC_OFF);
         ApplyToggleSideEffects(input);
         break;
     }
@@ -212,7 +216,23 @@ static void ApplyToggleSideEffects(u32 row)
         if (FlagGet(FLAG_SANDBOX_AUTO_HEAL))
             HealPlayerParty();
         break;
+    case ROW_FOLLOWERS:
+        if (FlagGet(FLAG_SANDBOX_FOLLOWERS_OFF))
+            RemoveFollowingPokemon();
+        else
+            UpdateFollowingPokemon();
+        break;
     }
+}
+
+// Rows whose flag means "feature disabled" read inverted so the list shows the feature state.
+static bool32 IsRowOn(u32 row)
+{
+    bool32 flagSet = FlagGet(sSandboxRowFlags[row]);
+
+    if (row == ROW_FOLLOWERS)
+        return !flagSet;
+    return flagSet;
 }
 
 void Sandbox_SetAll(bool32 enabled)
@@ -221,7 +241,9 @@ void Sandbox_SetAll(bool32 enabled)
 
     for (i = 0; i < ROW_TOGGLE_COUNT; i++)
     {
-        if (enabled)
+        bool32 setFlag = (i == ROW_FOLLOWERS) ? !enabled : enabled;
+
+        if (setFlag)
             FlagSet(sSandboxRowFlags[i]);
         else
             FlagClear(sSandboxRowFlags[i]);

@@ -61,7 +61,7 @@
 #define FLAG_SANDBOX_INSTANT_TEXT 0x27 // Sandbox menu toggle (src/sandbox.c)
 #define FLAG_SANDBOX_ALWAYS_SHINY 0x28 // Sandbox menu toggle (src/sandbox.c)
 #define FLAG_SANDBOX_FLY_ANYWHERE 0x29 // Sandbox menu toggle (src/sandbox.c)
-#define FLAG_UNUSED_0x02A    0x2A // Unused Flag
+#define FLAG_SANDBOX_FOLLOWERS_OFF 0x2A // Sandbox menu toggle (src/sandbox.c)
 #define FLAG_UNUSED_0x02B    0x2B // Unused Flag
 #define FLAG_UNUSED_0x02C    0x2C // Unused Flag
 #define FLAG_UNUSED_0x02D    0x2D // Unused Flag
