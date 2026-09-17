@@ -16877,3 +16877,20 @@ Double Battle: No
 Kyogre
 Level: 5
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_WAGER_DEMO ===
+Name: LUCKY
+Class: Gentleman
+Pic: Gentleman
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Basic Trainer
+
+Absol
+Level: 20
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Bite
+- Quick Attack
+- Swords Dance
+- Slash
