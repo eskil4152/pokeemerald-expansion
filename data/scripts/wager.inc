@@ -13,7 +13,7 @@
 
 @ Player picks what to stake. Sets VAR_RESULT = TRUE if a stake was placed.
 Wager_EventScript_ChooseStake::
-	special Wager_Clear
+	special Wager_ClearPlayerStake
 	dynmultichoice 0, 0, TRUE, 4, 0, DYN_MULTICHOICE_CB_NONE, Wager_Text_OptionMoney, Wager_Text_OptionPokemon, Wager_Text_OptionBoth, Wager_Text_OptionNothing
 	switch VAR_RESULT
 	case 0, Wager_EventScript_StakeMoney
@@ -46,7 +46,7 @@ Wager_EventScript_Confirm:
 	return
 
 Wager_EventScript_Declined:
-	special Wager_Clear
+	special Wager_ClearPlayerStake
 	setvar VAR_RESULT, FALSE
 	return
 

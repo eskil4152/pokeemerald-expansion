@@ -639,6 +639,7 @@ gSpecials::
 	def_special StickerManGetBragFlags
 	def_special CheckAddCoins
 	def_special Wager_Clear
+	def_special Wager_ClearPlayerStake
 	def_special Wager_TrySetMoneyStake
 	def_special Wager_TryStakePartyMon
 	def_special Wager_BufferStake

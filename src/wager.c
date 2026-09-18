@@ -26,6 +26,13 @@
 
 static const u8 sText_Nothing[] = _("nothing");
 
+// Clears only the player's side, so a stake the NPC set up beforehand survives.
+void Wager_ClearPlayerStake(void)
+{
+    VarSet(VAR_WAGER_MONEY, 0);
+    VarSet(VAR_WAGER_PLAYER_SLOT, 0);
+}
+
 void Wager_Clear(void)
 {
     VarSet(VAR_WAGER_MONEY, 0);
