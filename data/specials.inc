@@ -644,3 +644,16 @@ gSpecials::
 	def_special Wager_TryStakePartyMon
 	def_special Wager_BufferStake
 	def_special Wager_Settle
+	def_special Special_Underground_BufferUcoins
+	def_special Special_Underground_AddUcoins
+	def_special Special_Underground_TrySpendUcoins
+	def_special Special_Underground_GetHeat
+	def_special Special_Underground_AddHeat
+	def_special Special_Underground_IsLockedOut
+	def_special Special_Underground_GetMonSellValue
+	def_special Special_Underground_SellPartyMon
+	def_special Special_Underground_BuyMon
+	def_special Special_Underground_BufferWorkerInfo
+	def_special Special_Underground_BuyWorker
+	def_special Special_Underground_BufferPendingPayout
+	def_special Special_Underground_CollectPayout
