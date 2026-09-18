@@ -34,6 +34,7 @@
 #define CRY_MODE_WEAK         11 // Used when a Pokémon is unhealthy
 #define CRY_MODE_WEAK_DOUBLES 12 // Equivalent to CRY_MODE_DOUBLES for CRY_MODE_WEAK
 #define CRY_MODE_DYNAMAX      13 // Used during Dynamax
+#define CRY_MODE_ASCENDED     14 // Ascended Pokémon, see include/constants/ascension.h
 
 // Given to SoundTask_PlayDoubleCry to determine which cry mode to use. Values are arbitrary
 #define DOUBLE_CRY_ROAR  2

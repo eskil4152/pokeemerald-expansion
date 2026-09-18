@@ -96,13 +96,13 @@ void Wager_TryStakePartyMon(void)
         gSpecialVar_Result = WAGER_STAKE_CANCELLED;
         return;
     }
-    if (CalculatePlayerPartyCount() <= 1 || GetMonData(&gPlayerParty[slot], MON_DATA_IS_EGG))
+    if (CalculatePlayerPartyCount() <= 1 || GetMonData(&gParties[B_TRAINER_PLAYER][slot], MON_DATA_IS_EGG))
     {
         gSpecialVar_Result = WAGER_STAKE_INVALID;
         return;
     }
     VarSet(VAR_WAGER_PLAYER_SLOT, slot + 1);
-    GetMonData(&gPlayerParty[slot], MON_DATA_NICKNAME, gStringVar1);
+    GetMonData(&gParties[B_TRAINER_PLAYER][slot], MON_DATA_NICKNAME, gStringVar1);
     StringGet_Nickname(gStringVar1);
     gSpecialVar_Result = WAGER_STAKE_OK;
 }
@@ -115,7 +115,7 @@ void Wager_BufferStake(void)
     BufferCurrency(gStringVar1, VarGet(VAR_WAGER_MONEY));
     if (slot != 0)
     {
-        GetMonData(&gPlayerParty[slot - 1], MON_DATA_NICKNAME, gStringVar2);
+        GetMonData(&gParties[B_TRAINER_PLAYER][slot - 1], MON_DATA_NICKNAME, gStringVar2);
         StringGet_Nickname(gStringVar2);
     }
     else
@@ -162,9 +162,9 @@ void Wager_Settle(void)
             Underground_TrySpendUcoins(Underground_GetUcoins());
         if (slot != 0)
         {
-            GetMonData(&gPlayerParty[slot - 1], MON_DATA_NICKNAME, gStringVar2);
+            GetMonData(&gParties[B_TRAINER_PLAYER][slot - 1], MON_DATA_NICKNAME, gStringVar2);
             StringGet_Nickname(gStringVar2);
-            ZeroMonData(&gPlayerParty[slot - 1]);
+            ZeroMonData(&gParties[B_TRAINER_PLAYER][slot - 1]);
             CompactPartySlots();
             CalculatePlayerPartyCount();
             gSpecialVar_0x8005 = WAGER_MON_TAKEN;

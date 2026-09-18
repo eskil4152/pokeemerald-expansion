@@ -1,4 +1,5 @@
 #include "global.h"
+#include "ascension.h"
 #include "main.h"
 #include "battle.h"
 #include "battle_anim.h"
@@ -3218,6 +3219,7 @@ static void PrintNotEggInfo(void)
     StringCopy(gStringVar1, gText_LevelSymbol);
     ConvertIntToDecimalStringN(gStringVar2, summary->level, STR_CONV_MODE_LEFT_ALIGN, 3);
     StringAppend(gStringVar1, gStringVar2);
+    Ascension_AppendTierMark(mon, gStringVar1);
     PrintTextOnWindow(PSS_LABEL_WINDOW_PORTRAIT_SPECIES, gStringVar1, 24, 17, 0, 1);
     GetMonNickname(mon, gStringVar1);
     PrintTextOnWindowToFitPx(PSS_LABEL_WINDOW_PORTRAIT_NICKNAME, gStringVar1, 0, 1, 0, 1, WindowWidthPx(PSS_LABEL_WINDOW_PORTRAIT_NICKNAME) - 9);
@@ -4521,7 +4523,7 @@ static void PlayMonCry(void)
     if (!summary->isEgg)
     {
         if (ShouldPlayNormalMonCry(&sMonSummaryScreen->currentMon) == TRUE)
-            PlayCry_ByMode(summary->species2, 0, CRY_MODE_NORMAL);
+            PlayCry_ByMode(summary->species2, 0, Ascension_GetCryMode(&sMonSummaryScreen->currentMon, CRY_MODE_NORMAL));
         else
             PlayCry_ByMode(summary->species2, 0, CRY_MODE_WEAK);
     }

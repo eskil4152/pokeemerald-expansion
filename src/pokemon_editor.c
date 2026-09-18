@@ -1,5 +1,6 @@
 #include "global.h"
 #include "pokemon_editor.h"
+#include "ascension.h"
 #include "bg.h"
 #include "data.h"
 #include "decompress.h"
@@ -69,6 +70,8 @@ enum EditorField
     FIELD_SHINY,
     FIELD_FRIENDSHIP,
     FIELD_TERA_TYPE,
+    FIELD_ASC_TIER,
+    FIELD_ASC_WINS,
     FIELD_NICKNAME,
     FIELD_EXIT,
     FIELD_COUNT,
@@ -180,6 +183,8 @@ static const struct ListMenuItem sFieldItems[FIELD_COUNT] =
     [FIELD_SHINY]      = { COMPOUND_STRING("Shiny"),      FIELD_SHINY },
     [FIELD_FRIENDSHIP] = { COMPOUND_STRING("Friendship"), FIELD_FRIENDSHIP },
     [FIELD_TERA_TYPE]  = { COMPOUND_STRING("Tera Type"),  FIELD_TERA_TYPE },
+    [FIELD_ASC_TIER]   = { COMPOUND_STRING("Asc. Tier"),  FIELD_ASC_TIER },
+    [FIELD_ASC_WINS]   = { COMPOUND_STRING("Asc. Wins"),  FIELD_ASC_WINS },
     [FIELD_NICKNAME]   = { COMPOUND_STRING("Nickname"),   FIELD_NICKNAME },
     [FIELD_EXIT]       = { COMPOUND_STRING("Exit"),       FIELD_EXIT },
 };
@@ -439,6 +444,11 @@ static void PrintFieldValue(u8 windowId, u32 field, u8 y)
     case FIELD_TERA_TYPE:
         str = gTypesInfo[GetMonData(mon, MON_DATA_TERA_TYPE)].name;
         break;
+    case FIELD_ASC_TIER:
+    case FIELD_ASC_WINS:
+        ConvertIntToDecimalStringN(gStringVar1, GetMonData(mon, field == FIELD_ASC_TIER ? MON_DATA_ASCENSION_TIER : MON_DATA_ASCENSION_WINS), STR_CONV_MODE_LEFT_ALIGN, 2);
+        str = gStringVar1;
+        break;
     case FIELD_NICKNAME:
         GetMonData(mon, MON_DATA_NICKNAME, nickname);
         StringGet_Nickname(nickname);
@@ -529,6 +539,12 @@ static void SelectField(u32 field)
         break;
     case FIELD_TERA_TYPE:
         OpenPicker(field, PICKER_TERA_TYPE);
+        break;
+    case FIELD_ASC_TIER:
+        OpenNumberEditor(field, 0, ASCENSION_MAX_TIER, GetMonData(mon, MON_DATA_ASCENSION_TIER));
+        break;
+    case FIELD_ASC_WINS:
+        OpenNumberEditor(field, 0, ASCENSION_MAX_WINS, GetMonData(mon, MON_DATA_ASCENSION_WINS));
         break;
     case FIELD_NICKNAME:
         BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
@@ -627,6 +643,12 @@ static void ApplyNumber(void)
     }
     case FIELD_FRIENDSHIP:
         SetMonData(mon, MON_DATA_FRIENDSHIP, &value);
+        break;
+    case FIELD_ASC_TIER:
+        SetMonData(mon, MON_DATA_ASCENSION_TIER, &value);
+        break;
+    case FIELD_ASC_WINS:
+        SetMonData(mon, MON_DATA_ASCENSION_WINS, &value);
         break;
     default:
         if (field >= FIELD_IV_HP && field <= FIELD_IV_SPDEF)

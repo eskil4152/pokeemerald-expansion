@@ -1,4 +1,5 @@
 #include "global.h"
+#include "ascension.h"
 #include "malloc.h"
 #include "apprentice.h"
 #include "battle.h"
@@ -1387,6 +1388,7 @@ void CalculateMonStatsCont(struct Pokemon *mon, bool32 updateSpeedStat)
     s32 newMaxHP;
 
     u8 nature = GetMonData(mon, MON_DATA_HIDDEN_NATURE);
+    u32 ascensionTier = Ascension_GetMonTier(mon);
 
     SetMonData(mon, MON_DATA_LEVEL, &level);
 
@@ -1416,6 +1418,7 @@ void CalculateMonStatsCont(struct Pokemon *mon, bool32 updateSpeedStat)
         n = ModifyStatByNature(nature, n, i);
         if (B_FRIENDSHIP_BOOST == TRUE)
             n = n + ((n * 10 * friendship) / (MAX_FRIENDSHIP * 100));
+        n = Ascension_ApplyStatBonus(ascensionTier, n);
         SetMonData(mon, MON_DATA_MAX_HP + i, &n);
     }
 
@@ -1432,6 +1435,7 @@ void CalculateMonStatsCont(struct Pokemon *mon, bool32 updateSpeedStat)
     {
         s32 n = 2 * GetSpeciesBaseHP(species) + iv[STAT_HP];
         newMaxHP = (((n + ev[STAT_HP] / 4) * level) / 100) + level + 10;
+        newMaxHP = Ascension_ApplyStatBonus(ascensionTier, newMaxHP);
     }
 
     gBattleScripting.levelUpHP = newMaxHP - oldMaxHP;
@@ -2206,6 +2210,12 @@ u32 GetBoxMonData3(struct BoxPokemon *boxMon, s32 field, u8 *data)
         case MON_DATA_MET_GAME:
             retVal = GetSubstruct3(boxMon)->metGame;
             break;
+        case MON_DATA_ASCENSION_TIER:
+            retVal = GetSubstruct0(boxMon)->ascensionTier;
+            break;
+        case MON_DATA_ASCENSION_WINS:
+            retVal = GetSubstruct0(boxMon)->ascensionWins;
+            break;
         case MON_DATA_POKEBALL:
             retVal = GetSubstruct0(boxMon)->pokeball;
             break;
@@ -2720,6 +2730,12 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
             break;
         case MON_DATA_MET_GAME:
             SET8(GetSubstruct3(boxMon)->metGame);
+            break;
+        case MON_DATA_ASCENSION_TIER:
+            SET8(GetSubstruct0(boxMon)->ascensionTier);
+            break;
+        case MON_DATA_ASCENSION_WINS:
+            SET8(GetSubstruct0(boxMon)->ascensionWins);
             break;
         case MON_DATA_POKEBALL:
             SET8(GetSubstruct0(boxMon)->pokeball);

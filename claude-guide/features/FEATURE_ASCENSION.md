@@ -1,6 +1,6 @@
 # Feature: Ascension, reign and visiting champions
 
-Branch: `feature/ascension` (from master). Status: design agreed, not started. Building waits for manual tests of the dependency branches and a `dev` integration branch that merges them.
+Branch: `feature/ascension` (built on `dev`). Status: phase 1 implemented, builds, awaiting manual test. Phases 2–5 not started.
 
 ## Goal
 
@@ -98,7 +98,7 @@ Costs above: 9 shards per Pokémon to tier 5, 54 for a full team. The main line 
 
 ## Phases
 
-1. Tier storage, stat bonus, cry pitch, star mark, editor field, `src/data/ascension.h`.
+1. **Done.** Tier storage, stat bonus, ascended cry, star mark, editor fields, `src/data/ascension.h`.
 2. Shard item, shrine map, guardian ritual.
 3. Rank questline and its trials.
 4. Reign and visiting champions, post-champion scaling.
@@ -110,6 +110,17 @@ Costs above: 9 shards per Pokémon to tier 5, 54 for a full team. The main line 
 - Player rank, reign day counter, reign state: unused vars (`0x40A1`, `0x40A8`, `0x40B8` are free across all branches).
 - Shards: bag items.
 - No save struct changes planned.
+
+## Phase 1 implementation notes
+
+- `struct PokemonSubstruct0`: `unused_04:3` became `ascensionTier:3`, `unused_02:6` became `ascensionWins:6`. Accessed with `MON_DATA_ASCENSION_TIER` / `MON_DATA_ASCENSION_WINS`. Struct size unchanged; existing Pokémon read 0.
+- If upstream ever widens `heldItem` (10 bits, next to the win counter) the merge will conflict loudly on that line; move the counter to `unused_0A:2` plus another spare field then.
+- Stat bonus: `Ascension_ApplyStatBonus` called for each non-HP stat after nature and friendship, and for max HP, in `CalculateMonStatsCont` (`src/pokemon.c`). Shedinja keeps 1 HP. Everything that recalculates stats (level up, PC, editor, battle end) picks it up; battles copy stats from the party.
+- Cry: new `CRY_MODE_ASCENDED` in `src/sound.c`, tuned by `ASCENSION_CRY_*` in `include/constants/ascension.h`. Used for the healthy single cry when sent out (`src/pokeball.c`) and in the summary screen, from tier 3. Weak, fainting and double-battle cries are unchanged. The Howl mode first planned was too short and shrill, so the ascended mode is full length with a slight pitch rise and chorus.
+- Summary: the level line reads e.g. "Lv50★3".
+- Editor: "Asc. Tier" (0–5) and "Asc. Wins" (0–63) fields.
+- Tuning: `src/data/ascension.h` holds the step table (with guardians) and the rank table (not read until phase 4).
+- No way to ascend in game yet except the editor; the shrine comes in phase 2.
 
 ## Open decisions
 

@@ -1,4 +1,5 @@
 #include "global.h"
+#include "ascension.h"
 #include "battle.h"
 #include "battle_anim.h"
 #include "decompress.h"
@@ -748,7 +749,7 @@ static void Task_PlayCryWhenReleasedFromBall(u8 taskId)
     case 1:
         // Play single cry
         if (ShouldPlayNormalMonCry(mon) == TRUE)
-            PlayCry_ByMode(species, pan, CRY_MODE_NORMAL);
+            PlayCry_ByMode(species, pan, Ascension_GetCryMode(mon, CRY_MODE_NORMAL));
         else
             PlayCry_ByMode(species, pan, CRY_MODE_WEAK);
         gBattleSpritesDataPtr->healthBoxesData[battler].waitForCry = FALSE;

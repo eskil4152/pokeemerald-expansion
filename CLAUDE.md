@@ -56,5 +56,6 @@ In game: Select on the title screen quickstarts a new game; hold R + Start in th
 - 2026-09-17: Fork cloned, toolchain installed, first build succeeded, mGBA installed. Guide written on branch `docs/claude-guide` (merged to master).
 - 2026-09-18: Features built on separate branches, each with a plan file in `claude-guide/features/`: sandbox menu, followers, wager battles, Pokémon editor, underground economy, quests, arena and hub. All manually tested by Eskil. Ascension designed (`FEATURE_ASCENSION.md`), not built.
 - 2026-09-18: `dev` branch merges every feature branch plus the ascension plan; EXIT removed from the Start menu. Master is untouched upstream plus the guide. Ascension work happens on top of `dev`.
+- 2026-09-18: Ascension phase 1 on `feature/ascension`: per-Pokémon tier and win counter in spare struct bits, stat bonus, ascended cry, summary star, editor fields, tuning in `src/data/ascension.h`. Awaiting manual test.
 
 Update this section when work lands, one line per milestone with the date.

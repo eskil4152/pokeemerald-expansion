@@ -1,4 +1,5 @@
 #include "global.h"
+#include "constants/ascension.h"
 #include "gba/m4a_internal.h"
 #include "sound.h"
 #include "battle.h"
@@ -457,6 +458,12 @@ void PlayCryInternal(enum Species species, s8 pan, s8 volume, u8 priority, u8 mo
         // fallthrough
     case CRY_MODE_WEAK:
         pitch = 15000;
+        break;
+    case CRY_MODE_ASCENDED:
+        length = ASCENSION_CRY_LENGTH;
+        release = ASCENSION_CRY_RELEASE;
+        pitch = ASCENSION_CRY_PITCH;
+        chorus = ASCENSION_CRY_CHORUS;
         break;
     case CRY_MODE_DYNAMAX:
         length = 255;
