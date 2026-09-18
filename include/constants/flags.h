@@ -62,9 +62,9 @@
 #define FLAG_SANDBOX_ALWAYS_SHINY 0x28 // Sandbox menu toggle (src/sandbox.c)
 #define FLAG_SANDBOX_FLY_ANYWHERE 0x29 // Sandbox menu toggle (src/sandbox.c)
 #define FLAG_SANDBOX_FOLLOWERS_OFF 0x2A // Sandbox menu toggle (src/sandbox.c)
-#define FLAG_UNUSED_0x02B    0x2B // Unused Flag
-#define FLAG_UNUSED_0x02C    0x2C // Unused Flag
-#define FLAG_UNUSED_0x02D    0x2D // Unused Flag
+#define FLAG_WAGER_IN_UCOIN  0x2B // Wager battles: stakes are UCOIN, not money (src/wager.c)
+#define FLAG_ARENA_ACCESS    0x2C // Paid the fence the arena buy-in (src/arena.c)
+#define FLAG_UNDERGROUND_TRUSTED 0x2D // Did at least one deal with the fence
 #define FLAG_UNUSED_0x02E    0x2E // Unused Flag
 #define FLAG_UNUSED_0x02F    0x2F // Unused Flag
 #define FLAG_UNUSED_0x030    0x30 // Unused Flag

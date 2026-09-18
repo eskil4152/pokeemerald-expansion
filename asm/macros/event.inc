@@ -3011,3 +3011,10 @@
 	getbraillestringwidth \text
 	call EventScript_BrailleCursorWaitButton
 	.endm
+
+	@ Wager battle: never whites out, heals the party after a loss, and continues the
+	@ script afterwards with VAR_RESULT = TRUE if the player was defeated. Repeatable
+	@ (the trainer-defeated flag is ignored). See data/scripts/wager.inc.
+	.macro wagerbattle trainer:req, lose_text:req, victory_text=NULL
+	trainerbattle LOCALID_NONE, \trainer, NULL, \lose_text, NULL, LOCALID_NONE, TRAINER_NONE, NULL, NULL, NULL, \victory_text, NULL, FALSE, TRUE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE, RIVAL_BATTLE_HEAL_AFTER
+	.endm

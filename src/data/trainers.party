@@ -16877,3 +16877,191 @@ Double Battle: No
 Kyogre
 Level: 5
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_WAGER_DEMO ===
+Name: LUCKY
+Class: Gentleman
+Pic: Gentleman
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Basic Trainer
+
+Absol
+Level: 20
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Bite
+- Quick Attack
+- Swords Dance
+- Slash
+
+=== TRAINER_ARENA_1 ===
+Name: SLICK
+Class: Team Aqua
+Pic: Aqua Grunt M
+Gender: Male
+Music: Aqua
+Double Battle: No
+AI: Basic Trainer
+
+Mightyena
+Level: 18
+- Bite
+- Howl
+- Sand Attack
+- Tackle
+
+Carvanha
+Level: 18
+- Bite
+- Leer
+- Aqua Jet
+- Scary Face
+
+=== TRAINER_ARENA_2 ===
+Name: KNUCKLES
+Class: Black Belt
+Pic: Black Belt
+Gender: Male
+Music: Intense
+Double Battle: No
+AI: Basic Trainer
+
+Machoke
+Level: 28
+- Karate Chop
+- Seismic Toss
+- Revenge
+- Bulk Up
+
+Heracross
+Level: 28
+- Horn Attack
+- Brick Break
+- Night Slash
+- Endure
+
+Hariyama
+Level: 29
+- Arm Thrust
+- Fake Out
+- Knock Off
+- Vital Throw
+
+=== TRAINER_ARENA_3 ===
+Name: MADAME
+Class: Hex Maniac
+Pic: Hex Maniac
+Gender: Female
+Music: Suspicious
+Double Battle: No
+AI: Check Bad Move / Try To Faint
+
+Banette
+Level: 38
+- Shadow Claw
+- Will-O-Wisp
+- Knock Off
+- Curse
+
+Sableye
+Level: 38
+- Night Shade
+- Will-O-Wisp
+- Knock Off
+- Confuse Ray
+
+Dusclops @ Eviolite
+Level: 39
+- Night Shade
+- Will-O-Wisp
+- Pain Split
+- Shadow Sneak
+
+=== TRAINER_ARENA_4 ===
+Name: ACE
+Class: Expert
+Pic: Expert M
+Gender: Male
+Music: Intense
+Double Battle: No
+AI: Smart Trainer
+
+Metagross @ Life Orb
+Level: 48
+- Meteor Mash
+- Zen Headbutt
+- Bullet Punch
+- Earthquake
+
+Salamence @ Choice Band
+Level: 48
+- Dragon Claw
+- Earthquake
+- Crunch
+- Aerial Ace
+
+Gardevoir
+Level: 48
+- Psychic
+- Moonblast
+- Calm Mind
+- Thunderbolt
+
+Aggron @ Leftovers
+Level: 48
+- Iron Head
+- Stone Edge
+- Earthquake
+- Rock Polish
+
+=== TRAINER_ARENA_5 ===
+Name: HOUSE
+Class: Gentleman
+Pic: Gentleman
+Gender: Male
+Music: Rich
+Double Battle: No
+AI: Smart Trainer
+
+Tyranitar @ Leftovers
+Level: 60
+- Stone Edge
+- Crunch
+- Earthquake
+- Dragon Dance
+
+Gengar @ Focus Sash
+Level: 60
+- Shadow Ball
+- Sludge Bomb
+- Focus Blast
+- Thunderbolt
+
+Kingdra @ Choice Specs
+Level: 60
+- Hydro Pump
+- Draco Meteor
+- Ice Beam
+- Surf
+
+Scizor @ Life Orb
+Level: 60
+- Bullet Punch
+- X-Scissor
+- Swords Dance
+- Iron Head
+
+Togekiss @ Leftovers
+Level: 60
+- Air Slash
+- Moonblast
+- Thunder Wave
+- Roost
+
+Garchomp @ Choice Scarf
+Level: 61
+- Earthquake
+- Dragon Claw
+- Stone Edge
+- Fire Fang
