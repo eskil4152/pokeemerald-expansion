@@ -256,6 +256,7 @@ Ascension_EventScript_VisitorAnswer:
 	case ASCENSION_VISITOR_LANCE, Ascension_EventScript_BattleLance
 	case ASCENSION_VISITOR_STEVEN, Ascension_EventScript_BattleSteven
 	case ASCENSION_VISITOR_WALLACE, Ascension_EventScript_BattleWallace
+	case ASCENSION_VISITOR_CYNTHIA, Ascension_EventScript_BattleCynthia
 	release
 	end
 
@@ -286,6 +287,10 @@ Ascension_EventScript_BattleSteven:
 
 Ascension_EventScript_BattleWallace:
 	wagerbattle TRAINER_VISITOR_WALLACE, Ascension_Text_VisitorDefeat
+	goto Ascension_EventScript_AfterVisitorBattle
+
+Ascension_EventScript_BattleCynthia:
+	wagerbattle TRAINER_VISITOR_CYNTHIA, Ascension_Text_VisitorDefeat
 	goto Ascension_EventScript_AfterVisitorBattle
 
 Ascension_EventScript_AfterVisitorBattle:

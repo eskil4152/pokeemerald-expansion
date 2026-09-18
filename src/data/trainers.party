@@ -10503,22 +10503,63 @@ Golbat
 Level: 35
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
-=== TRAINER_GRUNT_UNUSED ===
-Name: GRUNT
-Class: Team Magma
-Pic: Aqua Grunt F
+=== TRAINER_VISITOR_CYNTHIA ===
+Name: CYNTHIA
+Class: Champion
+Pic: Cooltrainer F
 Gender: Female
-Music: Aqua
+Music: Intense
+Items: Full Restore / Full Restore / Full Restore / Full Restore
 Double Battle: No
-AI: Check Bad Move
+AI: Smart Trainer
 
-Wailmer
-Level: 31
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Spiritomb @ Leftovers
+Level: 78
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Shadow Ball
+- Dark Pulse
+- Will-O-Wisp
+- Sucker Punch
 
-Zubat
-Level: 31
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Roserade @ Miracle Seed
+Level: 78
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Energy Ball
+- Sludge Bomb
+- Shadow Ball
+- Extrasensory
+
+Togekiss @ Leftovers
+Level: 79
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Air Slash
+- Aura Sphere
+- Water Pulse
+- Nasty Plot
+
+Lucario @ Black Belt
+Level: 79
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Aura Sphere
+- Flash Cannon
+- Dragon Pulse
+- Extreme Speed
+
+Milotic @ Leftovers
+Level: 79
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Surf
+- Ice Beam
+- Mirror Coat
+- Recover
+
+Garchomp @ Sitrus Berry
+Level: 82
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Dragon Rush
+- Earthquake
+- Giga Impact
+- Swords Dance
 
 === TRAINER_GRUNT_MT_PYRE_4 ===
 Name: GRUNT

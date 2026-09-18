@@ -39,7 +39,8 @@
 #define ASCENSION_VISITOR_LANCE         4
 #define ASCENSION_VISITOR_STEVEN        5
 #define ASCENSION_VISITOR_WALLACE       6
-#define ASCENSION_VISITOR_COUNT         7
+#define ASCENSION_VISITOR_CYNTHIA       7
+#define ASCENSION_VISITOR_COUNT         8
 
 // Ascension_CheckRequirements results (VAR_RESULT).
 #define ASC_REQ_OK                      0

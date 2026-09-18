@@ -42,6 +42,8 @@ const struct AscensionVisitor gAscensionVisitors[ASCENSION_VISITOR_COUNT] =
     [ASCENSION_VISITOR_LANCE]   = { TRAINER_VISITOR_LANCE,   OBJ_EVENT_GFX_LANCE,     4 },
     [ASCENSION_VISITOR_STEVEN]  = { TRAINER_VISITOR_STEVEN,  OBJ_EVENT_GFX_STEVEN,    5 },
     [ASCENSION_VISITOR_WALLACE] = { TRAINER_VISITOR_WALLACE, OBJ_EVENT_GFX_WALLACE,   5 },
+    // Placeholder art: Cooltrainer F pic and sprite until Cynthia sprites are added.
+    [ASCENSION_VISITOR_CYNTHIA] = { TRAINER_VISITOR_CYNTHIA, OBJ_EVENT_GFX_COOLTRAINER_F, 5 },
 };
 
 // Tier of every Pokémon the Ascended One fields (Trial V).

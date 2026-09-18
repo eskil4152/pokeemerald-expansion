@@ -149,7 +149,7 @@ Trials (Oracle → Present my trial). Each pass gives +1 rank and 2 shards, comp
 - V: the Ascended One (Brendan sprite, Tyranitar/Salamence/Metagross/Latios/Garchomp/Rayquaza, all tier 5). Items allowed.
 While dethroned the Oracle refuses trials until you reclaim the title.
 
-Reign: each in-game day as Champion adds a reign day. Every 7th reign day a visiting champion arrives in the League lobby (rotation Red, Leaf, Blue, Lance, Steven, Wallace). Answer within 3 days or lose the title. Losing the fight also loses it; the visitor then holds the title in the lobby until beaten. Winning pays 1 shard. Ranks are never lost.
+Reign: each in-game day as Champion adds a reign day. Every 7th reign day a visiting champion arrives in the League lobby (rotation Red, Leaf, Blue, Lance, Steven, Wallace, Cynthia). Answer within 3 days or lose the title. Losing the fight also loses it; the visitor then holds the title in the lobby until beaten. Winning pays 1 shard. Ranks are never lost.
 
 Scaling (only after `FLAG_IS_CHAMPION`): regular trainers are raised to max(rank floor, party average − 5); Elite Four and Wallace to max(floor, average + 2); visitors average + 3 and tier min(visitor cap, rank cap); the Ascended One average + 5. Levels are only raised, never lowered, and moves are kept. Arena trainers and the wager demo are not scaled; the arena boss gets the rank's NPC tier.
 
@@ -165,12 +165,12 @@ Not done:
 - Guardians use the wild AI; `B_VAR_WILD_AI_FLAGS` could make them smarter.
 - Scaled trainers keep their movesets and do not evolve.
 
-Testing shortcuts (debug menu, R + Start): set `FLAG_IS_CHAMPION` (0x87F), `VAR_ASCENSION_RANK` (0x40A1), `VAR_ASCENSION_REIGN_DAYS` (0x40A8), give `ITEM_ASCENSION_SHARD`, and max friendship / wins with the Pokémon editor. To force a visitor: set `VAR_ASCENSION_VISITOR` (0x40B8) to 1–6 and `FLAG_ASCENSION_CHALLENGE_PENDING` (0x2E), then re-enter the League lobby.
+Testing shortcuts (debug menu, R + Start): set `FLAG_IS_CHAMPION` (0x87F), `VAR_ASCENSION_RANK` (0x40A1), `VAR_ASCENSION_REIGN_DAYS` (0x40A8), give `ITEM_ASCENSION_SHARD`, and max friendship / wins with the Pokémon editor. To force a visitor: set `VAR_ASCENSION_VISITOR` (0x40B8) to 1–7 and `FLAG_ASCENSION_CHALLENGE_PENDING` (0x2E), then re-enter the League lobby.
 
 ## Decisions taken
 
 - Shrine entrance: mystic in the League lobby plus a copy in the hub.
 - Dethroning: loss, or 3 days unanswered. The visitor holds the title at the League until beaten. Ranks never drop.
 - Rank table: floors 60/65/70/75/80/90, NPC tier caps 0–5. Placeholders; tune in `src/data/ascension.h`.
-- Visiting champions: Red, Leaf, Blue, Lance, Steven, Wallace.
+- Visiting champions: Red, Leaf, Blue, Lance, Steven, Wallace, Cynthia. Cynthia uses id 568 (was the unused `TRAINER_GRUNT_UNUSED`) and placeholder art (Cooltrainer F pic and overworld sprite); real sprites need a new `TRAINER_PIC_CYNTHIA` and `OBJ_EVENT_GFX_CYNTHIA`, then swap them in `trainers.party` and `src/data/ascension.h`.
 - Dialga and Palkia: base formes.
