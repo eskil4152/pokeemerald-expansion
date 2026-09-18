@@ -4,4 +4,5 @@
 @ data/scripts/ascension.inc.
 
 AscensionShrine_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, Companion_OnTransition
 	.byte 0

@@ -16117,6 +16117,23 @@ const struct ItemInfo gItemsInfo[] =
         .iconPic = gItemIcon_Shard,
         .iconPalette = gItemIconPalette_AscensionShard,
     },
+
+    [ITEM_PROMISE_RING] =
+    {
+        .name = ITEM_NAME("Promise Ring"),
+        .price = 30000,
+        .description = COMPOUND_STRING(
+            "A ring for the one\n"
+            "you love. Offer it\n"
+            "to ask for forever."),
+        .pocket = POCKET_ITEMS,
+        .sortType = ITEM_TYPE_SELLABLE,
+        .importance = 1,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_PearlString,
+        .iconPalette = gItemIconPalette_PearlString,
+    },
 };
 
 #undef ITEM_NAME

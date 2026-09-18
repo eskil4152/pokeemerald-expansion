@@ -42,3 +42,443 @@ EVs: 252 Atk / 252 SpA / 6 SpD
 - Protect
 - Solar Beam
 - Dragon Claw
+
+=== PARTNER_CYNTHIA ===
+Name: CYNTHIA
+Class: Champion
+Pic: Cooltrainer F
+Gender: Female
+Music: Female
+AI: Smart Trainer
+
+Garchomp @ Sitrus Berry
+Level: 60
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Dragon Claw
+- Earthquake
+- Stone Edge
+- Swords Dance
+
+Lucario @ Black Belt
+Level: 60
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Aura Sphere
+- Flash Cannon
+- Dragon Pulse
+- Extreme Speed
+
+Togekiss @ Leftovers
+Level: 60
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Air Slash
+- Aura Sphere
+- Protect
+- Nasty Plot
+
+Milotic @ Leftovers
+Level: 60
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Surf
+- Ice Beam
+- Recover
+- Mirror Coat
+
+=== PARTNER_ROXANNE ===
+Name: ROXANNE
+Class: Leader
+Pic: Leader Roxanne
+Gender: Female
+Music: Female
+AI: Smart Trainer
+
+Probopass @ Hard Stone
+Level: 60
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Power Gem
+- Earth Power
+- Flash Cannon
+- Thunder Wave
+
+Aerodactyl @ Hard Stone
+Level: 60
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Rock Slide
+- Earthquake
+- Crunch
+- Protect
+
+Golem @ Soft Sand
+Level: 60
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Earthquake
+- Rock Slide
+- Explosion
+- Protect
+
+Omastar @ Mystic Water
+Level: 60
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Surf
+- Ancient Power
+- Ice Beam
+- Protect
+
+=== PARTNER_FLANNERY ===
+Name: FLANNERY
+Class: Leader
+Pic: Leader Flannery
+Gender: Female
+Music: Female
+AI: Smart Trainer
+
+Torkoal @ Charcoal
+Level: 60
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Heat Wave
+- Earth Power
+- Protect
+- Solar Beam
+
+Camerupt @ Charcoal
+Level: 60
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Eruption
+- Earthquake
+- Protect
+- Rock Slide
+
+Houndoom @ Black Glasses
+Level: 60
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Flamethrower
+- Dark Pulse
+- Protect
+- Nasty Plot
+
+Magcargo @ Leftovers
+Level: 60
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Heat Wave
+- Ancient Power
+- Protect
+- Recover
+
+=== PARTNER_WINONA ===
+Name: WINONA
+Class: Leader
+Pic: Leader Winona
+Gender: Female
+Music: Female
+AI: Smart Trainer
+
+Altaria @ Leftovers
+Level: 60
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Dragon Pulse
+- Air Slash
+- Protect
+- Roost
+
+Skarmory @ Leftovers
+Level: 60
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Brave Bird
+- Iron Head
+- Protect
+- Roost
+
+Pelipper @ Mystic Water
+Level: 60
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Surf
+- Hurricane
+- Protect
+- Tailwind
+
+Tropius @ Miracle Seed
+Level: 60
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Energy Ball
+- Air Slash
+- Protect
+- Synthesis
+
+=== PARTNER_PHOEBE ===
+Name: PHOEBE
+Class: Elite Four
+Pic: Elite Four Phoebe
+Gender: Female
+Music: Female
+AI: Smart Trainer
+
+Dusknoir @ Spell Tag
+Level: 60
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Shadow Punch
+- Earthquake
+- Protect
+- Ice Punch
+
+Banette @ Spell Tag
+Level: 60
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Shadow Claw
+- Sucker Punch
+- Protect
+- Will-O-Wisp
+
+Sableye @ Leftovers
+Level: 60
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Foul Play
+- Shadow Ball
+- Protect
+- Recover
+
+Mismagius @ Spell Tag
+Level: 60
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Shadow Ball
+- Dazzling Gleam
+- Protect
+- Thunderbolt
+
+=== PARTNER_GLACIA ===
+Name: GLACIA
+Class: Elite Four
+Pic: Elite Four Glacia
+Gender: Female
+Music: Female
+AI: Smart Trainer
+
+Walrein @ Never-Melt Ice
+Level: 60
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Blizzard
+- Surf
+- Protect
+- Rest
+
+Glalie @ Never-Melt Ice
+Level: 60
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Ice Shard
+- Earthquake
+- Protect
+- Crunch
+
+Froslass @ Never-Melt Ice
+Level: 60
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Ice Beam
+- Shadow Ball
+- Protect
+- Will-O-Wisp
+
+Abomasnow @ Leftovers
+Level: 60
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Blizzard
+- Energy Ball
+- Protect
+- Ice Shard
+
+=== PARTNER_STEVEN_COMPANION ===
+Name: STEVEN
+Class: Champion
+Pic: Steven
+Gender: Male
+Music: Male
+AI: Smart Trainer
+
+Metagross @ Metal Coat
+Level: 60
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Meteor Mash
+- Zen Headbutt
+- Protect
+- Earthquake
+
+Skarmory @ Leftovers
+Level: 60
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Brave Bird
+- Iron Head
+- Protect
+- Roost
+
+Aggron @ Hard Stone
+Level: 60
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Heavy Slam
+- Stone Edge
+- Protect
+- Earthquake
+
+Claydol @ Soft Sand
+Level: 60
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Earth Power
+- Psychic
+- Protect
+- Reflect
+
+=== PARTNER_WALLACE ===
+Name: WALLACE
+Class: Champion
+Pic: Champion Wallace
+Gender: Male
+Music: Male
+AI: Smart Trainer
+
+Milotic @ Leftovers
+Level: 60
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Scald
+- Ice Beam
+- Protect
+- Recover
+
+Gyarados @ Leftovers
+Level: 60
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Waterfall
+- Earthquake
+- Protect
+- Dragon Dance
+
+Ludicolo @ Miracle Seed
+Level: 60
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Giga Drain
+- Surf
+- Protect
+- Fake Out
+
+Kingdra @ Mystic Water
+Level: 60
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Surf
+- Dragon Pulse
+- Protect
+- Ice Beam
+
+=== PARTNER_BRAWLY ===
+Name: BRAWLY
+Class: Leader
+Pic: Leader Brawly
+Gender: Male
+Music: Male
+AI: Smart Trainer
+
+Hariyama @ Black Belt
+Level: 60
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Close Combat
+- Fake Out
+- Protect
+- Knock Off
+
+Medicham @ Black Belt
+Level: 60
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- High Jump Kick
+- Zen Headbutt
+- Protect
+- Ice Punch
+
+Breloom @ Miracle Seed
+Level: 60
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Mach Punch
+- Seed Bomb
+- Protect
+- Spore
+
+Hitmontop @ Black Belt
+Level: 60
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Close Combat
+- Fake Out
+- Protect
+- Sucker Punch
+
+=== PARTNER_SIDNEY ===
+Name: SIDNEY
+Class: Elite Four
+Pic: Elite Four Sidney
+Gender: Male
+Music: Male
+AI: Smart Trainer
+
+Absol @ Black Glasses
+Level: 60
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Night Slash
+- Sucker Punch
+- Protect
+- Psycho Cut
+
+Shiftry @ Black Glasses
+Level: 60
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Dark Pulse
+- Leaf Storm
+- Protect
+- Fake Out
+
+Sharpedo @ Mystic Water
+Level: 60
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Crunch
+- Waterfall
+- Protect
+- Ice Fang
+
+Crawdaunt @ Black Glasses
+Level: 60
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Crabhammer
+- Knock Off
+- Protect
+- Aqua Jet
+
+=== PARTNER_LANCE ===
+Name: LANCE
+Class: Champion
+Pic: Elite Four Lance Frlg
+Gender: Male
+Music: Male
+AI: Smart Trainer
+
+Dragonite @ Leftovers
+Level: 60
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Outrage
+- Extreme Speed
+- Protect
+- Fire Punch
+
+Gyarados @ Leftovers
+Level: 60
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Waterfall
+- Earthquake
+- Protect
+- Dragon Dance
+
+Aerodactyl @ Hard Stone
+Level: 60
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Rock Slide
+- Earthquake
+- Protect
+- Crunch
+
+Kingdra @ Mystic Water
+Level: 60
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Surf
+- Dragon Pulse
+- Protect
+- Ice Beam

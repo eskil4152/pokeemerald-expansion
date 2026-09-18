@@ -70,17 +70,17 @@
 #define FLAG_ASCENSION_BEAT_VISITOR 0x30 // Beaten a visiting champion at least once
 #define FLAG_HIDE_ASCENSION_VISITOR 0x31 // Hides the visitor object in the League lobby
 #define FLAG_ASCENSION_MET_ORACLE 0x32 // Talked to the Oracle at the Shrine
-#define FLAG_UNUSED_0x033    0x33 // Unused Flag
-#define FLAG_UNUSED_0x034    0x34 // Unused Flag
-#define FLAG_UNUSED_0x035    0x35 // Unused Flag
-#define FLAG_UNUSED_0x036    0x36 // Unused Flag
-#define FLAG_UNUSED_0x037    0x37 // Unused Flag
-#define FLAG_UNUSED_0x038    0x38 // Unused Flag
-#define FLAG_UNUSED_0x039    0x39 // Unused Flag
+#define FLAG_HIDE_LOUNGE_SLOT_1          0x33 // Set on transition by Special_Companion_SetupMap (src/companion.c)
+#define FLAG_HIDE_LOUNGE_SLOT_2          0x34 // Set on transition by Special_Companion_SetupMap (src/companion.c)
+#define FLAG_HIDE_LOUNGE_SLOT_3          0x35 // Set on transition by Special_Companion_SetupMap (src/companion.c)
+#define FLAG_HIDE_LOUNGE_SLOT_4          0x36 // Set on transition by Special_Companion_SetupMap (src/companion.c)
+#define FLAG_HIDE_LOUNGE_SLOT_5          0x37 // Set on transition by Special_Companion_SetupMap (src/companion.c)
+#define FLAG_HIDE_LOUNGE_SLOT_6          0x38 // Set on transition by Special_Companion_SetupMap (src/companion.c)
+#define FLAG_HIDE_OUTING_LILYCOVE        0x39 // Set on transition by Special_Companion_SetupMap (src/companion.c)
 #define FLAG_SYS_JOURNAL_GET 0x3A // Set when the first quest starts; shows JOURNAL in the Start menu (src/quest.c)
-#define FLAG_UNUSED_0x03B    0x3B // Unused Flag
-#define FLAG_UNUSED_0x03C    0x3C // Unused Flag
-#define FLAG_UNUSED_0x03D    0x3D // Unused Flag
+#define FLAG_HIDE_OUTING_MOSSDEEP        0x3B // Set on transition by Special_Companion_SetupMap (src/companion.c)
+#define FLAG_HIDE_OUTING_SHRINE          0x3C // Set on transition by Special_Companion_SetupMap (src/companion.c)
+#define FLAG_HIDE_RESIDENCE_SPOUSE       0x3D // Set on transition by Special_Companion_SetupMap (src/companion.c)
 #define FLAG_UNUSED_0x03E    0x3E // Unused Flag
 #define FLAG_UNUSED_0x03F    0x3F // Unused Flag
 #define FLAG_UNUSED_0x040    0x40 // Unused Flag

@@ -296,17 +296,26 @@ Ascension_EventScript_BattleCynthia:
 Ascension_EventScript_AfterVisitorBattle:
 	copyvar VAR_0x8004, VAR_RESULT
 	special Special_Ascension_BufferVisitor
+	copyvar VAR_0x8009, VAR_RESULT
 	special Special_Ascension_OnVisitorBattle
 	goto_if_eq VAR_0x8004, TRUE, Ascension_EventScript_VisitorTookTitle
 	msgbox Ascension_Text_VisitorBeaten, MSGBOX_DEFAULT
 	giveitem ITEM_ASCENSION_SHARD, ASCENSION_VISITOR_BOUNTY
+	special Special_Companion_OnVisitorBeaten
+	goto_if_eq VAR_RESULT, TRUE, Ascension_EventScript_VisitorStays
 	msgbox Ascension_Text_VisitorLeaves, MSGBOX_DEFAULT
+Ascension_EventScript_VisitorExit:
 	closemessage
 	fadescreen FADE_TO_BLACK
 	removeobject LOCALID_LEAGUE_VISITOR
 	fadescreen FADE_FROM_BLACK
 	release
 	end
+
+@ The visitor becomes a companion (src/companion.c) and moves to the lounge.
+Ascension_EventScript_VisitorStays:
+	msgbox Ascension_Text_VisitorStays, MSGBOX_DEFAULT
+	goto Ascension_EventScript_VisitorExit
 
 Ascension_EventScript_VisitorTookTitle:
 	msgbox Ascension_Text_VisitorTookTitle, MSGBOX_DEFAULT
@@ -560,3 +569,9 @@ Ascension_Text_VisitorTookTitle:
 Ascension_Text_ArenaBounty:
 	.string "The house pays tribute to the\n"
 	.string "Champion. Once a week, as agreed.$"
+
+Ascension_Text_VisitorStays:
+	.string "{STR_VAR_1}: You know... I think I'll\n"
+	.string "stay in Hoenn a while.\p"
+	.string "The League has a lounge for\n"
+	.string "Champions. Come find me there.$"

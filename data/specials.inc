@@ -676,3 +676,21 @@ gSpecials::
 	def_special Special_Ascension_OnVisitorBattle
 	def_special Special_Ascension_TryWeeklyBounty
 	def_special Special_Ascension_BufferRumour
+	def_special Special_Companion_SetupMap
+	def_special Special_Companion_SelectSlot
+	def_special Special_Companion_SelectSpouse
+	def_special Special_Companion_SelectOuting
+	def_special Special_Companion_Talk
+	def_special Special_Companion_PrepareGift
+	def_special Special_Companion_GiveGift
+	def_special Special_Companion_CanBattle
+	def_special Special_Companion_AfterBattle
+	def_special Special_Companion_GetOutingState
+	def_special Special_Companion_StartOuting
+	def_special Special_Companion_BufferOutingScene
+	def_special Special_Companion_FinishOuting
+	def_special Special_Companion_CanPropose
+	def_special Special_Companion_Propose
+	def_special Special_Companion_StartFollowing
+	def_special Special_Companion_StopFollowing
+	def_special Special_Companion_OnVisitorBeaten

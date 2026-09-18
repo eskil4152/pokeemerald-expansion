@@ -257,6 +257,20 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "MossdeepCity_EventScript_BlackBelt",
       "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_MOSSDEEP_OUTING",
+      "graphics_id": "OBJ_EVENT_GFX_VAR_F",
+      "x": 5,
+      "y": 30,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Companion_EventScript_OutingPartner",
+      "flag": "FLAG_HIDE_OUTING_MOSSDEEP"
     }
   ],
   "warp_events": [

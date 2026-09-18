@@ -1,4 +1,5 @@
 #include "global.h"
+#include "companion.h"
 #include "main.h"
 #include "battle.h"
 #include "battle_partner.h"
@@ -46,6 +47,7 @@ void FillPartnerParty(u16 trainerId)
         {
             GenerateMonFromTrainerMon(&gParties[B_TRAINER_PARTNER][i], &partner->party[i], &partnerGen);
         }
+        Companion_OnPartnerPartyCreated(trainerId);
     }
     else if (trainerId == TRAINER_EREADER)
     {

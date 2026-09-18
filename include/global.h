@@ -28,6 +28,7 @@
 #include "config/save.h"
 #include "constants/underground.h"
 #include "constants/quests.h"
+#include "constants/companion.h"
 
 // Prevent cross-jump optimization.
 #define BLOCK_CROSS_JUMP asm("");
@@ -1094,6 +1095,22 @@ struct Underground
     u8 workers[NUM_WORKER_TYPES];
 };
 
+// Companions (src/companion.c). All-zero is the empty state, so saves made
+// before this existed read as "nobody met yet".
+struct CompanionSave
+{
+    u16 affection[COMPANION_MAX];
+    u16 talkDay[COMPANION_MAX];     // VAR_DAYS + 1 of the last talk, 0 = never
+    u16 giftDay[COMPANION_MAX];     // VAR_DAYS + 1 of the last gift
+    u16 battleDay[COMPANION_MAX];   // VAR_DAYS + 1 of the last lounge battle
+    u8 stage[COMPANION_MAX];        // COMPANION_STAGE_*
+    u8 spouse;                      // companion id + 1, 0 = not married
+    u8 outing;                      // COMPANION_OUTING_*
+    u8 outingWith;                  // companion id + 1
+    u8 following:1;
+    u8 padding:7;
+};
+
 struct Bag
 {
     struct ItemSlot items[BAG_ITEMS_COUNT];
@@ -1223,6 +1240,7 @@ struct SaveBlock1
 #endif
     struct Underground underground;
     u8 questStages[MAX_QUESTS]; // src/quest.c
+    struct CompanionSave companions; // src/companion.c
     // sizeof: 0x3???
 };
 

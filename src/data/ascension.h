@@ -46,6 +46,18 @@ const struct AscensionVisitor gAscensionVisitors[ASCENSION_VISITOR_COUNT] =
     [ASCENSION_VISITOR_CYNTHIA] = { TRAINER_VISITOR_CYNTHIA, OBJ_EVENT_GFX_COOLTRAINER_F, 5 },
 };
 
+// Order visiting champions arrive in. Cynthia comes first.
+static const u8 gAscensionVisitorRotation[] =
+{
+    ASCENSION_VISITOR_CYNTHIA,
+    ASCENSION_VISITOR_RED,
+    ASCENSION_VISITOR_LEAF,
+    ASCENSION_VISITOR_BLUE,
+    ASCENSION_VISITOR_LANCE,
+    ASCENSION_VISITOR_STEVEN,
+    ASCENSION_VISITOR_WALLACE,
+};
+
 // Tier of every Pokémon the Ascended One fields (Trial V).
 #define ASCENDED_ONE_TIER   5
 

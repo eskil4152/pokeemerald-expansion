@@ -2,6 +2,7 @@
 #include "ascension.h"
 #include "arena.h"
 #include "battle.h"
+#include "companion.h"
 #include "data.h"
 #include "event_data.h"
 #include "event_object_movement.h"
@@ -253,6 +254,24 @@ void Ascension_OnBattleFinished(void)
     }
 }
 
+// Next visiting champion in gAscensionVisitorRotation, skipping those who
+// stay in Hoenn as companions (src/companion.c).
+static u32 PickNextVisitor(void)
+{
+    u32 tries;
+
+    for (tries = 0; tries < ARRAY_COUNT(gAscensionVisitorRotation); tries++)
+    {
+        u32 index = VarGet(VAR_ASCENSION_NEXT_VISITOR) % ARRAY_COUNT(gAscensionVisitorRotation);
+        u32 visitor = gAscensionVisitorRotation[index];
+
+        VarSet(VAR_ASCENSION_NEXT_VISITOR, index + 1);
+        if (!Companion_IsVisitorStaying(visitor))
+            return visitor;
+    }
+    return ASCENSION_VISITOR_NONE;
+}
+
 // Reign: counts days as Champion, sends a visiting champion every
 // ASCENSION_CHALLENGE_INTERVAL days, and takes the title if a challenge goes
 // unanswered for ASCENSION_CHALLENGE_DEADLINE days.
@@ -287,10 +306,11 @@ void Ascension_DoDailyEvents(u32 daysSince)
         }
         else if (reign % ASCENSION_CHALLENGE_INTERVAL == 0)
         {
-            u32 next = VarGet(VAR_ASCENSION_NEXT_VISITOR) % (ASCENSION_VISITOR_COUNT - 1);
+            u32 visitor = PickNextVisitor();
 
-            VarSet(VAR_ASCENSION_VISITOR, next + 1);
-            VarSet(VAR_ASCENSION_NEXT_VISITOR, next + 1);
+            if (visitor == ASCENSION_VISITOR_NONE)
+                continue;
+            VarSet(VAR_ASCENSION_VISITOR, visitor);
             VarSet(VAR_ASCENSION_CHALLENGE_DAYS, 0);
             FlagSet(FLAG_ASCENSION_CHALLENGE_PENDING);
         }
@@ -461,6 +481,7 @@ void Special_Ascension_AdvanceRank(void)
     if (rank >= ASCENSION_MAX_RANK)
         return;
     Quest_Complete(QUEST_ASCENSION_I + rank);
+    Companion_OnRankUp();
     rank++;
     VarSet(VAR_ASCENSION_RANK, rank);
     if (rank < ASCENSION_MAX_RANK)
@@ -548,6 +569,8 @@ void Special_Ascension_BufferRumour(void)
     gSpecialVar_Result = FALSE;
     if (!FlagGet(FLAG_IS_CHAMPION) || Random() % ASCENSION_RUMOUR_CHANCE != 0)
         return;
-    StringExpandPlaceholders(gStringVar4, sRumours[Ascension_GetRank()][Random() % 2]);
     gSpecialVar_Result = TRUE;
+    if ((Random() % 2) && Companion_TryBufferRumour())
+        return;
+    StringExpandPlaceholders(gStringVar4, sRumours[Ascension_GetRank()][Random() % 2]);
 }

@@ -36,6 +36,13 @@ static const u8 *const sQuestStages_AscensionV[] =
     COMPOUND_STRING("Ask the Oracle to face the Ascended One."),
 };
 
+static const u8 *const sQuestStages_Companion[] =
+{
+    COMPOUND_STRING("Spend time with the Champions in the Lounge at the Pokémon League."),
+    COMPOUND_STRING("Someone loves you back. A Promise Ring from the Lounge attendant could make it forever."),
+    COMPOUND_STRING("Once you reach Rank V, ascend together at the Shrine."),
+};
+
 const struct Quest gQuests[QUEST_COUNT] =
 {
     [QUEST_MEET_THE_NEIGHBOURS] =
@@ -89,6 +96,15 @@ const struct Quest gQuests[QUEST_COUNT] =
         .description = COMPOUND_STRING("Someone climbed the Shrine before you."),
         .stageTexts = sQuestStages_AscensionV,
         .stageCount = ARRAY_COUNT(sQuestStages_AscensionV),
+        .unlockFlag = 0,
+        .lockedText = NULL,
+    },
+    [QUEST_COMPANION] =
+    {
+        .name = COMPOUND_STRING("Hearts"),
+        .description = COMPOUND_STRING("Champions need company too."),
+        .stageTexts = sQuestStages_Companion,
+        .stageCount = ARRAY_COUNT(sQuestStages_Companion),
         .unlockFlag = 0,
         .lockedText = NULL,
     },

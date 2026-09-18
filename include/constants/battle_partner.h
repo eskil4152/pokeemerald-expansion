@@ -4,6 +4,18 @@
 
 #define PARTNER_NONE 0
 #define PARTNER_STEVEN 1
-#define PARTNER_COUNT 2
+// Companions (src/companion.c). Partner battles with the spouse.
+#define PARTNER_CYNTHIA 2
+#define PARTNER_ROXANNE 3
+#define PARTNER_FLANNERY 4
+#define PARTNER_WINONA 5
+#define PARTNER_PHOEBE 6
+#define PARTNER_GLACIA 7
+#define PARTNER_STEVEN_COMPANION 8
+#define PARTNER_WALLACE 9
+#define PARTNER_BRAWLY 10
+#define PARTNER_SIDNEY 11
+#define PARTNER_LANCE 12
+#define PARTNER_COUNT 13
 
 #endif  // GUARD_CONSTANTS_BATTLE_PARTNERS_H
