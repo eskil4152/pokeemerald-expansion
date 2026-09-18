@@ -3018,3 +3018,31 @@
 	.macro wagerbattle trainer:req, lose_text:req, victory_text=NULL
 	trainerbattle LOCALID_NONE, \trainer, NULL, \lose_text, NULL, LOCALID_NONE, TRAINER_NONE, NULL, NULL, NULL, \victory_text, NULL, FALSE, TRUE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE, RIVAL_BATTLE_HEAL_AFTER
 	.endm
+
+	@ Quests (src/quest.c). Ids in include/constants/quests.h.
+	.macro startquest quest:req
+	setvar VAR_0x8004, \quest
+	special Special_Quest_Start
+	.endm
+
+	.macro advancequest quest:req
+	setvar VAR_0x8004, \quest
+	special Special_Quest_Advance
+	.endm
+
+	.macro setqueststage quest:req, stage:req
+	setvar VAR_0x8004, \quest
+	setvar VAR_0x8005, \stage
+	special Special_Quest_SetStage
+	.endm
+
+	.macro completequest quest:req
+	setvar VAR_0x8004, \quest
+	special Special_Quest_Complete
+	.endm
+
+	@ VAR_RESULT = QUEST_STAGE_NONE, 1..n, or QUEST_STAGE_DONE
+	.macro checkquest quest:req
+	setvar VAR_0x8004, \quest
+	special Special_Quest_GetStage
+	.endm

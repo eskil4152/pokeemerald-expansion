@@ -2,6 +2,7 @@
 #include "clock.h"
 #include "new_game.h"
 #include "underground.h"
+#include "quest.h"
 #include "random.h"
 #include "clock.h"
 #include "pokemon.h"
@@ -236,6 +237,7 @@ void NewGameInitData(void)
     ResetDexNav();
     ClearFollowerNPCData();
     Underground_ResetSaveData();
+    Quest_ResetSaveData();
 }
 
 static void ResetMiniGamesRecords(void)

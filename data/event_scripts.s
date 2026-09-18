@@ -78,6 +78,7 @@
 #include "constants/wager.h"
 #include "constants/underground.h"
 #include "constants/arena.h"
+#include "constants/quests.h"
 	.include "asm/macros.inc"
 	.include "asm/macros/event.inc"
 	.include "constants/constants.inc"

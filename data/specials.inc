@@ -660,3 +660,8 @@ gSpecials::
 	def_special Special_Arena_IsTierOpen
 	def_special Special_Arena_RecordResult
 	def_special Special_Arena_BufferStatus
+	def_special Special_Quest_Start
+	def_special Special_Quest_Advance
+	def_special Special_Quest_SetStage
+	def_special Special_Quest_Complete
+	def_special Special_Quest_GetStage
