@@ -662,6 +662,7 @@ static bool8 HandleStartMenuInput(void)
         if (gMenuCallback != StartMenuSaveCallback
             && gMenuCallback != StartMenuExitCallback
             && gMenuCallback != StartMenuDebugCallback
+            && gMenuCallback != StartMenuSandboxCallback
             && gMenuCallback != StartMenuSafariZoneRetireCallback
             && gMenuCallback != StartMenuBattlePyramidRetireCallback)
         {
