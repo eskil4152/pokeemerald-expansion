@@ -1,6 +1,6 @@
 # Feature: Underground economy
 
-Branch: `feature/underground-economy` (from master). Status: planned, not started. Currency and arena names are placeholders (`UCOIN`).
+Branch: `feature/underground-economy` (from master). Status: implemented, builds, awaiting manual test. Currency name is a placeholder (`UCOIN`), changed in text only.
 
 ## Goal
 
@@ -32,3 +32,24 @@ Yes: new SaveBlock1 fields. Do this on a branch that also lands any other save-b
 ## Open decisions
 
 Currency and arena names, worker types and their yields, heat thresholds and consequences, sell-price formula.
+
+## Implementation notes
+
+- State: `struct Underground { u32 ucoins; u32 pendingPayout; u8 heat; u8 workers[3]; }` appended to `SaveBlock1` (12 bytes). **Save-breaking**: delete the `.sav` when switching to this branch.
+- `src/underground.c`: pure logic plus thirteen specials (`Special_Underground_*`). Sell value = base stat total × level / 10, ×3 for legendaries and mythicals, ×2 for shinies, minimum 10. Eggs and the last party member cannot be sold.
+- Workers: Pickpocket 200u → 20/day, Smuggler 600u → 70/day, Fence 1500u → 200/day, up to 99 each. Income accrues into `pendingPayout` from `DoDailyEvents` (`src/clock.c`) and is collected from the broker.
+- Heat: selling +15, buying a Pokémon +5, hiring +10, collecting +5; decays 10 per day; at 80 or more both NPCs refuse to deal.
+- Demo NPCs in Littleroot Town: the fence (MAN_3 sprite) at (8, 14) with sell / buy (Dratini 500u, Beldum 800u, Larvitar 800u, level 20) / balance; the broker (OLD_MAN sprite) at (17, 14) with hire / collect / balance.
+
+## Files
+
+`include/global.h`, `include/constants/underground.h`, `include/underground.h`, `src/underground.c`, `data/scripts/underground.inc`, `data/event_scripts.s`, `data/specials.inc`, `src/new_game.c`, `src/clock.c`, `data/maps/LittlerootTown/map.json`.
+
+## How to test
+
+1. Delete the old `.sav`, new game, reach Littleroot.
+2. Fence → Sell a Pokémon: pick one; balance rises by the quoted value. Try selling your last Pokémon or an egg: refused.
+3. Fence → Buy: with under 500u, "can't cover that"; sell something first, then buy a Dratini.
+4. Broker → Hire a Pickpocket; Check balance shows heat rising.
+5. Change the day (debug menu → Utilities → Time, or set the clock forward) and Collect earnings.
+6. Repeat sells until heat is 80 or more: both NPCs refuse; advance days and they deal again.

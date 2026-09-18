@@ -26,6 +26,7 @@
 #include "constants/items.h"
 #include "constants/moves.h"
 #include "config/save.h"
+#include "constants/underground.h"
 
 // Prevent cross-jump optimization.
 #define BLOCK_CROSS_JUMP asm("");
@@ -1083,6 +1084,15 @@ struct ExternalEventFlags
 
 } __attribute__((packed));/*size = 0x15*/
 
+// Underground economy (src/underground.c). Placeholder currency name: UCOIN.
+struct Underground
+{
+    u32 ucoins;
+    u32 pendingPayout;
+    u8 heat;
+    u8 workers[NUM_WORKER_TYPES];
+};
+
 struct Bag
 {
     struct ItemSlot items[BAG_ITEMS_COUNT];
@@ -1210,6 +1220,7 @@ struct SaveBlock1
     u8 rivalName[PLAYER_NAME_LENGTH + 1];
     struct DaycareMon route5DayCareMon;
 #endif
+    struct Underground underground;
     // sizeof: 0x3???
 };
 
