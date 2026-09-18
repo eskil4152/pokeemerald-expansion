@@ -638,3 +638,8 @@ gSpecials::
 	def_special UpdateTrainerCardPhotoIcons
 	def_special StickerManGetBragFlags
 	def_special CheckAddCoins
+	def_special Special_Quest_Start
+	def_special Special_Quest_Advance
+	def_special Special_Quest_SetStage
+	def_special Special_Quest_Complete
+	def_special Special_Quest_GetStage

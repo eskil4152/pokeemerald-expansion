@@ -1,6 +1,6 @@
 # Feature: Quest system
 
-Branch: `feature/quests` (from master). Status: planned, not started.
+Branch: `feature/quests` (from master). Status: implemented, builds, awaiting manual test.
 
 ## Goal
 
@@ -31,3 +31,25 @@ None beyond consuming unused vars. If more than ~20 quests are needed, a `u8 que
 ## How to test (once built)
 
 Start a demo quest from an NPC, check the journal, advance it, complete it, confirm the journal moves it to Completed.
+
+## Implementation notes
+
+- State: `u8 questStages[MAX_QUESTS]` (32 bytes) appended to `SaveBlock1` instead of vars, so quests scale. **Save-breaking**: delete the `.sav` when switching to this branch.
+- `src/quest.c`: `Quest_Start/Advance/SetStage/Complete/GetStage`, lock and visibility rules, five specials. Starting any quest sets `FLAG_SYS_JOURNAL_GET` (renamed from `FLAG_UNUSED_0x03A`), which adds JOURNAL to the Start menu.
+- Script macros in `asm/macros/event.inc`: `startquest`, `advancequest` (past the last stage completes), `setqueststage`, `completequest`, `checkquest` (stage into `VAR_RESULT`).
+- `src/data/quests.h`: the quest table. A quest with an `unlockFlag` is listed as Locked with its `lockedText` until the flag is set; that is the hook for ascension tiers. `QUEST_ASCENSION_I` is included as a locked example gated on `FLAG_IS_CHAMPION`.
+- `src/quest_log.c`: Journal screen, list with a status column (Active, Done, Locked, Available) and a detail box with the description and the current stage text. Returns to the field with the Start menu open.
+- Demo quest "Meet the Neighbours" in Littleroot: the boy near the lab starts it, the man who talks about the PC advances it, the boy completes it and gives a Rare Candy.
+
+## Files
+
+`include/constants/quests.h`, `src/data/quests.h`, `include/quest.h`, `src/quest.c`, `include/quest_log.h`, `src/quest_log.c`, `include/global.h`, `src/new_game.c`, `src/start_menu.c`, `asm/macros/event.inc`, `data/specials.inc`, `data/event_scripts.s`, `include/constants/flags.h`, `data/maps/LittlerootTown/scripts.inc`.
+
+## How to test
+
+1. Delete the old `.sav`, new game, reach Littleroot.
+2. Talk to the boy (wanders south of the lab): "The JOURNAL was updated!". Start menu now shows JOURNAL.
+3. JOURNAL: "Meet the Neighbours" is Active; detail shows stage 1. "Ascension I" shows Locked with its hint.
+4. Talk to the man near the houses: journal updates to stage 2.
+5. Talk to the boy: quest completes, Rare Candy. Journal shows Done.
+6. Debug menu → set `FLAG_IS_CHAMPION`: Ascension I becomes Available.

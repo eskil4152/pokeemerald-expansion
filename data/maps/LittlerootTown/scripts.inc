@@ -242,12 +242,61 @@ LittlerootTown_EventScript_SetRivalBirchPosForDexUpgradeFemale::
 	end
 
 LittlerootTown_EventScript_FatMan::
-	msgbox LittlerootTown_Text_CanUsePCToStoreItems, MSGBOX_NPC
+	lock
+	faceplayer
+	msgbox LittlerootTown_Text_CanUsePCToStoreItems, MSGBOX_DEFAULT
+	checkquest QUEST_MEET_THE_NEIGHBOURS
+	call_if_eq VAR_RESULT, 1, LittlerootTown_EventScript_FatMan_AdvanceQuest
+	release
 	end
 
+LittlerootTown_EventScript_FatMan_AdvanceQuest:
+	advancequest QUEST_MEET_THE_NEIGHBOURS
+	playfanfare MUS_OBTAIN_ITEM
+	msgbox LittlerootTown_Text_JournalUpdated, MSGBOX_DEFAULT
+	waitfanfare
+	return
+
 LittlerootTown_EventScript_Boy::
-	msgbox LittlerootTown_Text_BirchSpendsDaysInLab, MSGBOX_NPC
+	lock
+	faceplayer
+	checkquest QUEST_MEET_THE_NEIGHBOURS
+	goto_if_eq VAR_RESULT, QUEST_STAGE_NONE, LittlerootTown_EventScript_Boy_StartQuest
+	goto_if_eq VAR_RESULT, 2, LittlerootTown_EventScript_Boy_FinishQuest
+	msgbox LittlerootTown_Text_BirchSpendsDaysInLab, MSGBOX_DEFAULT
+	release
 	end
+
+LittlerootTown_EventScript_Boy_StartQuest:
+	msgbox LittlerootTown_Text_BirchSpendsDaysInLab, MSGBOX_DEFAULT
+	msgbox LittlerootTown_Text_Boy_QuestStart, MSGBOX_DEFAULT
+	startquest QUEST_MEET_THE_NEIGHBOURS
+	playfanfare MUS_OBTAIN_ITEM
+	msgbox LittlerootTown_Text_JournalUpdated, MSGBOX_DEFAULT
+	waitfanfare
+	release
+	end
+
+LittlerootTown_EventScript_Boy_FinishQuest:
+	msgbox LittlerootTown_Text_Boy_QuestDone, MSGBOX_DEFAULT
+	completequest QUEST_MEET_THE_NEIGHBOURS
+	giveitem ITEM_RARE_CANDY
+	release
+	end
+
+LittlerootTown_Text_Boy_QuestStart:
+	.string "Hey, you're new!\p"
+	.string "There's a man around here who knows\n"
+	.string "how to store stuff in the PC.\p"
+	.string "Go find him, then tell me what\n"
+	.string "he says!$"
+
+LittlerootTown_Text_Boy_QuestDone:
+	.string "You met him? Great!\n"
+	.string "Here, have this.$"
+
+LittlerootTown_Text_JournalUpdated:
+	.string "The JOURNAL was updated!$"
 
 LittlerootTown_EventScript_Twin::
 	lock

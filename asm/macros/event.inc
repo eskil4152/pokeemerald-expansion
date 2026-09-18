@@ -3011,3 +3011,31 @@
 	getbraillestringwidth \text
 	call EventScript_BrailleCursorWaitButton
 	.endm
+
+	@ Quests (src/quest.c). Ids in include/constants/quests.h.
+	.macro startquest quest:req
+	setvar VAR_0x8004, \quest
+	special Special_Quest_Start
+	.endm
+
+	.macro advancequest quest:req
+	setvar VAR_0x8004, \quest
+	special Special_Quest_Advance
+	.endm
+
+	.macro setqueststage quest:req, stage:req
+	setvar VAR_0x8004, \quest
+	setvar VAR_0x8005, \stage
+	special Special_Quest_SetStage
+	.endm
+
+	.macro completequest quest:req
+	setvar VAR_0x8004, \quest
+	special Special_Quest_Complete
+	.endm
+
+	@ VAR_RESULT = QUEST_STAGE_NONE, 1..n, or QUEST_STAGE_DONE
+	.macro checkquest quest:req
+	setvar VAR_0x8004, \quest
+	special Special_Quest_GetStage
+	.endm
