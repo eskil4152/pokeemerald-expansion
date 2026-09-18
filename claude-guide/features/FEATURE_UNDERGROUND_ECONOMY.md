@@ -39,7 +39,7 @@ Currency and arena names, worker types and their yields, heat thresholds and con
 - `src/underground.c`: pure logic plus thirteen specials (`Special_Underground_*`). Sell value = base stat total × level / 10, ×3 for legendaries and mythicals, ×2 for shinies, minimum 10. Eggs and the last party member cannot be sold.
 - Workers: Pickpocket 200u → 20/day, Smuggler 600u → 70/day, Fence 1500u → 200/day, up to 99 each. Income accrues into `pendingPayout` from `DoDailyEvents` (`src/clock.c`) and is collected from the broker.
 - Heat: selling +15, buying a Pokémon +5, hiring +10, collecting +5; decays 10 per day; at 80 or more both NPCs refuse to deal.
-- Demo NPCs in Littleroot Town: the fence (MAN_3 sprite) at (8, 14) with sell / buy (Dratini 500u, Beldum 800u, Larvitar 800u, level 20) / balance; the broker (OLD_MAN sprite) at (17, 14) with hire / collect / balance.
+- Demo NPCs in Littleroot Town: the fence (MAN_3 sprite) at (1, 15), west of the lab with sell / buy (Dratini 500u, Beldum 800u, Larvitar 800u, level 20) / balance; the broker (OLD_MAN sprite) at (17, 14) with hire / collect / balance.
 
 ## Files
 
