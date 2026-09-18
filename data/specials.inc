@@ -657,3 +657,6 @@ gSpecials::
 	def_special Special_Underground_BuyWorker
 	def_special Special_Underground_BufferPendingPayout
 	def_special Special_Underground_CollectPayout
+	def_special Special_Arena_IsTierOpen
+	def_special Special_Arena_RecordResult
+	def_special Special_Arena_BufferStatus

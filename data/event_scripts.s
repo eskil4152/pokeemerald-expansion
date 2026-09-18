@@ -77,6 +77,7 @@
 #include "constants/speaker_names.h"
 #include "constants/wager.h"
 #include "constants/underground.h"
+#include "constants/arena.h"
 	.include "asm/macros.inc"
 	.include "asm/macros/event.inc"
 	.include "constants/constants.inc"
@@ -1742,3 +1743,5 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/scripts/wild_encounter.inc"
 	.include "data/scripts/wager.inc"
 	.include "data/scripts/underground.inc"
+	.include "data/maps/SandboxHub/scripts.inc"
+	.include "data/maps/UndergroundArena/scripts.inc"

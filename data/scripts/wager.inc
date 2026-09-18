@@ -47,11 +47,13 @@ Wager_EventScript_Confirm:
 
 Wager_EventScript_Declined:
 	special Wager_ClearPlayerStake
+	clearflag FLAG_WAGER_IN_UCOIN
 	setvar VAR_RESULT, FALSE
 	return
 
 @ Subroutine: pick a money amount. VAR_RESULT = TRUE if set.
 Wager_EventScript_PickMoneyAmount:
+	goto_if_set FLAG_WAGER_IN_UCOIN, Wager_EventScript_PickUcoinAmount
 	showmoneybox 0, 0
 	dynmultichoice 0, 4, TRUE, 5, 0, DYN_MULTICHOICE_CB_NONE, Wager_Text_Amount500, Wager_Text_Amount2000, Wager_Text_Amount5000, Wager_Text_Amount20000, Wager_Text_AmountCancel
 	hidemoneybox
@@ -74,6 +76,29 @@ Wager_EventScript_TrySetMoney5000:
 	goto Wager_EventScript_TrySetMoney
 Wager_EventScript_TrySetMoney20000:
 	setvar VAR_0x8004, 20000
+	goto Wager_EventScript_TrySetMoney
+
+Wager_EventScript_PickUcoinAmount:
+	dynmultichoice 0, 0, TRUE, 5, 0, DYN_MULTICHOICE_CB_NONE, Wager_Text_Ucoin50, Wager_Text_Ucoin200, Wager_Text_Ucoin500, Wager_Text_Ucoin2000, Wager_Text_AmountCancel
+	switch VAR_RESULT
+	case 0, Wager_EventScript_TrySetUcoin50
+	case 1, Wager_EventScript_TrySetUcoin200
+	case 2, Wager_EventScript_TrySetUcoin500
+	case 3, Wager_EventScript_TrySetUcoin2000
+	setvar VAR_RESULT, FALSE
+	return
+
+Wager_EventScript_TrySetUcoin50:
+	setvar VAR_0x8004, 50
+	goto Wager_EventScript_TrySetMoney
+Wager_EventScript_TrySetUcoin200:
+	setvar VAR_0x8004, 200
+	goto Wager_EventScript_TrySetMoney
+Wager_EventScript_TrySetUcoin500:
+	setvar VAR_0x8004, 500
+	goto Wager_EventScript_TrySetMoney
+Wager_EventScript_TrySetUcoin2000:
+	setvar VAR_0x8004, 2000
 	goto Wager_EventScript_TrySetMoney
 
 Wager_EventScript_TrySetMoney:
@@ -154,6 +179,7 @@ Wager_EventScript_DemoBookie::
 	faceplayer
 	msgbox Wager_Text_DemoIntro, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, FALSE, Wager_EventScript_DemoDeclined
+	clearflag FLAG_WAGER_IN_UCOIN
 	setvar VAR_WAGER_OPP_MONEY, 3000
 	setvar VAR_WAGER_OPP_SPECIES, SPECIES_ABSOL
 	setvar VAR_WAGER_OPP_LEVEL, 20
@@ -189,6 +215,14 @@ Wager_Text_Amount5000:
 	.string "¥5000$"
 Wager_Text_Amount20000:
 	.string "¥20000$"
+Wager_Text_Ucoin50:
+	.string "50 UCOIN$"
+Wager_Text_Ucoin200:
+	.string "200 UCOIN$"
+Wager_Text_Ucoin500:
+	.string "500 UCOIN$"
+Wager_Text_Ucoin2000:
+	.string "2000 UCOIN$"
 Wager_Text_AmountCancel:
 	.string "Cancel$"
 
@@ -203,11 +237,11 @@ Wager_Text_CantStakeThat:
 Wager_Text_MonStaked:
 	.string "{STR_VAR_1} is on the line.$"
 Wager_Text_ConfirmStake:
-	.string "Your stake: ¥{STR_VAR_1} and {STR_VAR_2}.\p"
+	.string "Your stake: {STR_VAR_1} and {STR_VAR_2}.\p"
 	.string "Deal?$"
 
 Wager_Text_YouWonMoney:
-	.string "{PLAYER} won ¥{STR_VAR_1}!$"
+	.string "{PLAYER} won {STR_VAR_1}!$"
 Wager_Text_WonMonParty:
 	.string "{PLAYER} won the {STR_VAR_2}!\p"
 	.string "It joined the party.$"
@@ -218,7 +252,7 @@ Wager_Text_WonMonNoRoom:
 	.string "{PLAYER} won the {STR_VAR_2},\n"
 	.string "but there was no room for it…$"
 Wager_Text_YouLostMoney:
-	.string "{PLAYER} lost ¥{STR_VAR_1}…$"
+	.string "{PLAYER} lost {STR_VAR_1}…$"
 Wager_Text_LostMon:
 	.string "{STR_VAR_2} was taken away…$"
 

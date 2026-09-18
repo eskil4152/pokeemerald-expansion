@@ -6,6 +6,7 @@
 #include "pokemon_storage_system.h"
 #include "script_pokemon_util.h"
 #include "string_util.h"
+#include "underground.h"
 #include "constants/battle.h"
 
 /*
@@ -25,6 +26,33 @@
  */
 
 static const u8 sText_Nothing[] = _("nothing");
+static const u8 sText_Yen[] = _("¥");
+static const u8 sText_UcoinSuffix[] = _(" UCOIN");
+
+// FLAG_WAGER_IN_UCOIN switches every stake and payout to the underground currency.
+static bool32 IsUcoinWager(void)
+{
+    return FlagGet(FLAG_WAGER_IN_UCOIN);
+}
+
+// Writes "¥1234" or "1234 UCOIN" depending on the wager currency.
+static void BufferCurrency(u8 *dest, u32 amount)
+{
+    u8 *end = dest;
+
+    if (!IsUcoinWager())
+        end = StringCopy(dest, sText_Yen);
+    end = ConvertIntToDecimalStringN(end, amount, STR_CONV_MODE_LEFT_ALIGN, 7);
+    if (IsUcoinWager())
+        StringCopy(end, sText_UcoinSuffix);
+}
+
+static bool32 CanAffordStake(u32 amount)
+{
+    if (IsUcoinWager())
+        return Underground_GetUcoins() >= amount;
+    return IsEnoughMoney(&gSaveBlock1Ptr->money, amount);
+}
 
 // Clears only the player's side, so a stake the NPC set up beforehand survives.
 void Wager_ClearPlayerStake(void)
@@ -40,6 +68,7 @@ void Wager_Clear(void)
     VarSet(VAR_WAGER_OPP_MONEY, 0);
     VarSet(VAR_WAGER_OPP_SPECIES, SPECIES_NONE);
     VarSet(VAR_WAGER_OPP_LEVEL, 0);
+    FlagClear(FLAG_WAGER_IN_UCOIN);
 }
 
 // In: VAR_0x8004 = amount. Out: VAR_RESULT = TRUE if the player can afford it (stake recorded).
@@ -47,7 +76,7 @@ void Wager_TrySetMoneyStake(void)
 {
     u32 amount = gSpecialVar_0x8004;
 
-    if (amount > WAGER_MAX_MONEY_STAKE || !IsEnoughMoney(&gSaveBlock1Ptr->money, amount))
+    if (amount > WAGER_MAX_MONEY_STAKE || !CanAffordStake(amount))
     {
         gSpecialVar_Result = FALSE;
         return;
@@ -83,7 +112,7 @@ void Wager_BufferStake(void)
 {
     u32 slot = VarGet(VAR_WAGER_PLAYER_SLOT);
 
-    ConvertIntToDecimalStringN(gStringVar1, VarGet(VAR_WAGER_MONEY), STR_CONV_MODE_LEFT_ALIGN, MAX_MONEY_DIGITS);
+    BufferCurrency(gStringVar1, VarGet(VAR_WAGER_MONEY));
     if (slot != 0)
     {
         GetMonData(&gPlayerParty[slot - 1], MON_DATA_NICKNAME, gStringVar2);
@@ -113,7 +142,10 @@ void Wager_Settle(void)
         enum Species species = VarGet(VAR_WAGER_OPP_SPECIES);
 
         money = VarGet(VAR_WAGER_OPP_MONEY);
-        AddMoney(&gSaveBlock1Ptr->money, money);
+        if (IsUcoinWager())
+            Underground_AddUcoins(money);
+        else
+            AddMoney(&gSaveBlock1Ptr->money, money);
         if (species != SPECIES_NONE)
         {
             StringCopy(gStringVar2, GetSpeciesName(species));
@@ -124,7 +156,10 @@ void Wager_Settle(void)
     else
     {
         money = VarGet(VAR_WAGER_MONEY);
-        RemoveMoney(&gSaveBlock1Ptr->money, money);
+        if (!IsUcoinWager())
+            RemoveMoney(&gSaveBlock1Ptr->money, money);
+        else if (!Underground_TrySpendUcoins(money))
+            Underground_TrySpendUcoins(Underground_GetUcoins());
         if (slot != 0)
         {
             GetMonData(&gPlayerParty[slot - 1], MON_DATA_NICKNAME, gStringVar2);
@@ -138,6 +173,6 @@ void Wager_Settle(void)
     }
 
     gSpecialVar_0x8006 = money;
-    ConvertIntToDecimalStringN(gStringVar1, money, STR_CONV_MODE_LEFT_ALIGN, MAX_MONEY_DIGITS);
+    BufferCurrency(gStringVar1, money);
     Wager_Clear();
 }

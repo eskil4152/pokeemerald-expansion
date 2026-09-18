@@ -27,12 +27,23 @@ Underground_EventScript_Fence::
 	call Underground_EventScript_CheckLockout
 	goto_if_eq VAR_RESULT, TRUE, Underground_EventScript_Leave
 	msgbox Underground_Text_FenceIntro, MSGBOX_DEFAULT
+	call_if_set FLAG_UNDERGROUND_TRUSTED, Arena_EventScript_FenceOfferBuyIn
 Underground_EventScript_FenceMenu:
+	goto_if_set FLAG_ARENA_ACCESS, Underground_EventScript_FenceMenuArena
 	dynmultichoice 0, 0, TRUE, 4, 0, DYN_MULTICHOICE_CB_NONE, Underground_Text_OptSell, Underground_Text_OptBuy, Underground_Text_OptBalance, Underground_Text_OptLeave
 	switch VAR_RESULT
 	case 0, Underground_EventScript_Sell
 	case 1, Underground_EventScript_Buy
 	case 2, Underground_EventScript_FenceBalance
+	goto Underground_EventScript_Leave
+
+Underground_EventScript_FenceMenuArena:
+	dynmultichoice 0, 0, TRUE, 5, 0, DYN_MULTICHOICE_CB_NONE, Underground_Text_OptSell, Underground_Text_OptBuy, Underground_Text_OptBalance, Underground_Text_OptDownstairs, Underground_Text_OptLeave
+	switch VAR_RESULT
+	case 0, Underground_EventScript_Sell
+	case 1, Underground_EventScript_Buy
+	case 2, Underground_EventScript_FenceBalance
+	case 3, Arena_EventScript_GoDownstairs
 	goto Underground_EventScript_Leave
 
 Underground_EventScript_FenceBalance:
@@ -47,9 +58,11 @@ Underground_EventScript_Sell:
 	msgbox Underground_Text_SellOffer, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, FALSE, Underground_EventScript_FenceMenu
 	special Special_Underground_SellPartyMon
+	setflag FLAG_UNDERGROUND_TRUSTED
 	playfanfare MUS_OBTAIN_ITEM
 	msgbox Underground_Text_Sold, MSGBOX_DEFAULT
 	waitfanfare
+	call Arena_EventScript_FenceOfferBuyIn
 	goto Underground_EventScript_FenceMenu
 
 Underground_EventScript_CantSell:
@@ -87,6 +100,7 @@ Underground_EventScript_DoBuy:
 	special Special_Underground_BuyMon
 	goto_if_eq VAR_RESULT, UNDERGROUND_CANT_AFFORD, Underground_EventScript_CantAfford
 	goto_if_eq VAR_RESULT, MON_CANT_GIVE, Underground_EventScript_NoRoom
+	setflag FLAG_UNDERGROUND_TRUSTED
 	playfanfare MUS_OBTAIN_ITEM
 	msgbox Underground_Text_Bought, MSGBOX_DEFAULT
 	waitfanfare
@@ -178,6 +192,8 @@ Underground_Text_OptBuy:
 	.string "Buy a Pokémon$"
 Underground_Text_OptBalance:
 	.string "Check balance$"
+Underground_Text_OptDownstairs:
+	.string "Go downstairs$"
 Underground_Text_OptLeave:
 	.string "Leave$"
 Underground_Text_OptHire:
