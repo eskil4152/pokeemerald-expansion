@@ -58,6 +58,7 @@ Arena_EventScript_TakeBet:
 @ In: VAR_RESULT = wager result from Wager_EventScript_Settle, VAR_0x8008 = table.
 Arena_EventScript_AfterFight:
 	copyvar VAR_0x8004, VAR_RESULT
+	call Ascension_EventScript_ArenaBounty
 	special Special_Arena_RecordResult
 	goto_if_eq VAR_RESULT, FALSE, Arena_EventScript_Return
 	goto_if_eq VAR_0x8008, ARENA_TIER_COUNT, Arena_EventScript_BossBeaten

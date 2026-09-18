@@ -16832,51 +16832,235 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_RED ===
 Name: RED
-Class: Rival
+Class: Champion
 Pic: Red
 Gender: Male
-Music: Male
+Music: Intense
+Items: Full Restore / Full Restore / Full Restore / Full Restore
 Double Battle: No
+AI: Smart Trainer
 
-Charmander
-Level: 5
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Pikachu @ Light Ball
+Level: 78
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Volt Tackle
+- Iron Tail
+- Quick Attack
+- Thunderbolt
+
+Lapras @ Leftovers
+Level: 76
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Blizzard
+- Surf
+- Body Slam
+- Rest
+
+Snorlax @ Chesto Berry
+Level: 76
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Body Slam
+- Earthquake
+- Crunch
+- Rest
+
+Venusaur @ Miracle Seed
+Level: 77
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Solar Beam
+- Sludge Bomb
+- Sleep Powder
+- Sunny Day
+
+Charizard @ Charcoal
+Level: 77
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Flamethrower
+- Air Slash
+- Dragon Pulse
+- Focus Blast
+
+Blastoise @ Mystic Water
+Level: 77
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Hydro Pump
+- Ice Beam
+- Flash Cannon
+- Focus Blast
 
 === TRAINER_LEAF ===
 Name: LEAF
-Class: Rival
+Class: Champion
 Pic: Leaf
 Gender: Female
-Music: Male
+Music: Intense
+Items: Full Restore / Full Restore / Full Restore / Full Restore
 Double Battle: No
+AI: Smart Trainer
 
-Bulbasaur
-Level: 5
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Clefable @ Leftovers
+Level: 75
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Moonblast
+- Calm Mind
+- Thunderbolt
+- Moonlight
 
-=== TRAINER_BRENDAN_PLACEHOLDER ===
-Name: BRENDAN
-Class: RS Protag
-Pic: RS Brendan
+Espeon @ Twisted Spoon
+Level: 76
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Psychic
+- Shadow Ball
+- Dazzling Gleam
+- Morning Sun
+
+Ninetales @ Charcoal
+Level: 75
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Flamethrower
+- Solar Beam
+- Nasty Plot
+- Extrasensory
+
+Nidoqueen @ Soft Sand
+Level: 75
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Earth Power
+- Sludge Wave
+- Ice Beam
+- Toxic Spikes
+
+Vaporeon @ Leftovers
+Level: 76
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Surf
+- Ice Beam
+- Wish
+- Protect
+
+Venusaur @ Miracle Seed
+Level: 78
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Giga Drain
+- Sludge Bomb
+- Leech Seed
+- Earth Power
+
+=== TRAINER_VISITOR_BLUE ===
+Name: BLUE
+Class: Champion
+Pic: Champion Rival Frlg
 Gender: Male
-Music: Male
+Music: Intense
+Items: Full Restore / Full Restore / Full Restore / Full Restore
 Double Battle: No
+AI: Smart Trainer
 
-Groudon
-Level: 5
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Pidgeot @ Sharp Beak
+Level: 75
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Hurricane
+- Heat Wave
+- Roost
+- Quick Attack
 
-=== TRAINER_MAY_PLACEHOLDER ===
-Name: MAY
-Class: RS Protag
-Pic: RS May
-Gender: Female
-Music: Male
+Alakazam @ Twisted Spoon
+Level: 76
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Psychic
+- Shadow Ball
+- Focus Blast
+- Recover
+
+Rhyperior @ Hard Stone
+Level: 76
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Earthquake
+- Stone Edge
+- Megahorn
+- Rock Polish
+
+Exeggutor @ Miracle Seed
+Level: 75
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Giga Drain
+- Psychic
+- Sleep Powder
+- Leech Seed
+
+Arcanine @ Charcoal
+Level: 76
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Flare Blitz
+- Extreme Speed
+- Wild Charge
+- Crunch
+
+Machamp @ Black Belt
+Level: 78
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Close Combat
+- Knock Off
+- Stone Edge
+- Bullet Punch
+
+=== TRAINER_VISITOR_LANCE ===
+Name: LANCE
+Class: Champion
+Pic: Elite Four Lance Frlg
+Gender: Male
+Music: Intense
+Items: Full Restore / Full Restore / Full Restore / Full Restore
 Double Battle: No
+AI: Smart Trainer
 
-Kyogre
-Level: 5
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Gyarados @ Leftovers
+Level: 76
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Dragon Dance
+- Waterfall
+- Earthquake
+- Ice Fang
+
+Aerodactyl @ Hard Stone
+Level: 75
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Stone Edge
+- Earthquake
+- Crunch
+- Aerial Ace
+
+Charizard @ Charcoal
+Level: 76
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Flamethrower
+- Air Slash
+- Dragon Pulse
+- Roost
+
+Kingdra @ Mystic Water
+Level: 76
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Hydro Pump
+- Draco Meteor
+- Ice Beam
+- Rain Dance
+
+Salamence @ Dragon Fang
+Level: 77
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Dragon Claw
+- Earthquake
+- Fire Fang
+- Dragon Dance
+
+Dragonite @ Leftovers
+Level: 79
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Outrage
+- Extreme Speed
+- Fire Punch
+- Dragon Dance
 
 === TRAINER_WAGER_DEMO ===
 Name: LUCKY
@@ -17065,3 +17249,177 @@ Level: 61
 - Dragon Claw
 - Stone Edge
 - Fire Fang
+
+=== TRAINER_VISITOR_STEVEN ===
+Name: STEVEN
+Class: Champion
+Pic: Steven
+Gender: Male
+Music: Intense
+Items: Full Restore / Full Restore / Full Restore / Full Restore
+Double Battle: No
+AI: Smart Trainer
+
+Skarmory @ Leftovers
+Level: 76
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Brave Bird
+- Iron Head
+- Spikes
+- Roost
+
+Claydol @ Soft Sand
+Level: 76
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Earthquake
+- Psychic
+- Ice Beam
+- Reflect
+
+Aggron @ Hard Stone
+Level: 77
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Heavy Slam
+- Stone Edge
+- Earthquake
+- Rock Polish
+
+Cradily @ Leftovers
+Level: 76
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Giga Drain
+- Rock Slide
+- Recover
+- Toxic
+
+Armaldo @ Silver Powder
+Level: 76
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- X-Scissor
+- Stone Edge
+- Earthquake
+- Swords Dance
+
+Metagross @ Metal Coat
+Level: 80
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Meteor Mash
+- Zen Headbutt
+- Earthquake
+- Bullet Punch
+
+=== TRAINER_VISITOR_WALLACE ===
+Name: WALLACE
+Class: Champion
+Pic: Champion Wallace
+Gender: Male
+Music: Intense
+Items: Full Restore / Full Restore / Full Restore / Full Restore
+Double Battle: No
+AI: Smart Trainer
+
+Wailord @ Leftovers
+Level: 76
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Water Spout
+- Blizzard
+- Earthquake
+- Rest
+
+Tentacruel @ Black Sludge
+Level: 76
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Scald
+- Sludge Bomb
+- Ice Beam
+- Rapid Spin
+
+Ludicolo @ Life Orb
+Level: 76
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Giga Drain
+- Hydro Pump
+- Ice Beam
+- Rain Dance
+
+Whiscash @ Soft Sand
+Level: 76
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Earthquake
+- Waterfall
+- Stone Edge
+- Dragon Dance
+
+Gyarados @ Leftovers
+Level: 77
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Dragon Dance
+- Waterfall
+- Earthquake
+- Bounce
+
+Milotic @ Leftovers
+Level: 80
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Scald
+- Ice Beam
+- Recover
+- Dragon Tail
+
+=== TRAINER_ASCENDED_ONE ===
+Name: ASCENDED
+Class: Champion
+Pic: Rs Brendan
+Gender: Male
+Music: Intense
+Items: Full Restore / Full Restore / Full Restore / Full Restore
+Double Battle: No
+AI: Smart Trainer
+
+Tyranitar @ Leftovers
+Level: 85
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Stone Edge
+- Crunch
+- Earthquake
+- Dragon Dance
+
+Salamence @ Life Orb
+Level: 85
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Draco Meteor
+- Flamethrower
+- Earthquake
+- Dragon Dance
+
+Metagross @ Leftovers
+Level: 85
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Meteor Mash
+- Zen Headbutt
+- Earthquake
+- Agility
+
+Latios @ Soul Dew
+Level: 86
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Draco Meteor
+- Psychic
+- Surf
+- Calm Mind
+
+Garchomp @ Choice Scarf
+Level: 86
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Earthquake
+- Outrage
+- Stone Edge
+- Fire Fang
+
+Rayquaza @ Life Orb
+Level: 90
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Dragon Ascent
+- Extreme Speed
+- Earthquake
+- Dragon Dance

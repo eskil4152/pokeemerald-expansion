@@ -13,7 +13,27 @@ static const u8 *const sQuestStages_MeetTheNeighbours[] =
 
 static const u8 *const sQuestStages_AscensionI[] =
 {
-    COMPOUND_STRING("Speak to the one who waits beyond the League."),
+    COMPOUND_STRING("Hold the Champion title for 7 days, then present your trial to the Oracle."),
+};
+
+static const u8 *const sQuestStages_AscensionII[] =
+{
+    COMPOUND_STRING("Clear every table of the Underground Arena, then return to the Oracle."),
+};
+
+static const u8 *const sQuestStages_AscensionIII[] =
+{
+    COMPOUND_STRING("Defeat a visiting Champion in the League lobby, then return to the Oracle."),
+};
+
+static const u8 *const sQuestStages_AscensionIV[] =
+{
+    COMPOUND_STRING("Ask the Oracle for the gauntlet: five battles, no items, no healing."),
+};
+
+static const u8 *const sQuestStages_AscensionV[] =
+{
+    COMPOUND_STRING("Ask the Oracle to face the Ascended One."),
 };
 
 const struct Quest gQuests[QUEST_COUNT] =
@@ -30,10 +50,46 @@ const struct Quest gQuests[QUEST_COUNT] =
     [QUEST_ASCENSION_I] =
     {
         .name = COMPOUND_STRING("Ascension I"),
-        .description = COMPOUND_STRING("The first step beyond being Champion."),
+        .description = COMPOUND_STRING("A mystic in the League lobby speaks of a Shrine beyond the title."),
         .stageTexts = sQuestStages_AscensionI,
         .stageCount = ARRAY_COUNT(sQuestStages_AscensionI),
         .unlockFlag = FLAG_IS_CHAMPION,
         .lockedText = COMPOUND_STRING("Become Champion to unlock."),
+    },
+    [QUEST_ASCENSION_II] =
+    {
+        .name = COMPOUND_STRING("Ascension II"),
+        .description = COMPOUND_STRING("Rule the Underground as well as the League."),
+        .stageTexts = sQuestStages_AscensionII,
+        .stageCount = ARRAY_COUNT(sQuestStages_AscensionII),
+        .unlockFlag = 0,
+        .lockedText = NULL,
+    },
+    [QUEST_ASCENSION_III] =
+    {
+        .name = COMPOUND_STRING("Ascension III"),
+        .description = COMPOUND_STRING("Your dominance must be known."),
+        .stageTexts = sQuestStages_AscensionIII,
+        .stageCount = ARRAY_COUNT(sQuestStages_AscensionIII),
+        .unlockFlag = 0,
+        .lockedText = NULL,
+    },
+    [QUEST_ASCENSION_IV] =
+    {
+        .name = COMPOUND_STRING("Ascension IV"),
+        .description = COMPOUND_STRING("Five shadows stand between you and the summit."),
+        .stageTexts = sQuestStages_AscensionIV,
+        .stageCount = ARRAY_COUNT(sQuestStages_AscensionIV),
+        .unlockFlag = 0,
+        .lockedText = NULL,
+    },
+    [QUEST_ASCENSION_V] =
+    {
+        .name = COMPOUND_STRING("Ascension V"),
+        .description = COMPOUND_STRING("Someone climbed the Shrine before you."),
+        .stageTexts = sQuestStages_AscensionV,
+        .stageCount = ARRAY_COUNT(sQuestStages_AscensionV),
+        .unlockFlag = 0,
+        .lockedText = NULL,
     },
 };

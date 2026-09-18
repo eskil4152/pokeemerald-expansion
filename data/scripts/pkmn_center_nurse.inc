@@ -1,6 +1,7 @@
 Common_EventScript_PkmnCenterNurse::
 	lock
 	faceplayer
+	call Ascension_EventScript_NurseRumour
 	setvar VAR_0x8004, 0
 .if !IS_FRLG
 	specialvar VAR_RESULT, CountPlayerTrainerStars

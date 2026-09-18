@@ -65,11 +65,11 @@
 #define FLAG_WAGER_IN_UCOIN  0x2B // Wager battles: stakes are UCOIN, not money (src/wager.c)
 #define FLAG_ARENA_ACCESS    0x2C // Paid the fence the arena buy-in (src/arena.c)
 #define FLAG_UNDERGROUND_TRUSTED 0x2D // Did at least one deal with the fence
-#define FLAG_UNUSED_0x02E    0x2E // Unused Flag
-#define FLAG_UNUSED_0x02F    0x2F // Unused Flag
-#define FLAG_UNUSED_0x030    0x30 // Unused Flag
-#define FLAG_UNUSED_0x031    0x31 // Unused Flag
-#define FLAG_UNUSED_0x032    0x32 // Unused Flag
+#define FLAG_ASCENSION_CHALLENGE_PENDING 0x2E // A visiting champion waits at the League
+#define FLAG_ASCENSION_DETHRONED 0x2F // Title lost to the visiting champion
+#define FLAG_ASCENSION_BEAT_VISITOR 0x30 // Beaten a visiting champion at least once
+#define FLAG_HIDE_ASCENSION_VISITOR 0x31 // Hides the visitor object in the League lobby
+#define FLAG_ASCENSION_MET_ORACLE 0x32 // Talked to the Oracle at the Shrine
 #define FLAG_UNUSED_0x033    0x33 // Unused Flag
 #define FLAG_UNUSED_0x034    0x34 // Unused Flag
 #define FLAG_UNUSED_0x035    0x35 // Unused Flag

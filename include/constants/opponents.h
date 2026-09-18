@@ -855,22 +855,25 @@
 #define TRAINER_MARIELA                     848
 #define TRAINER_ALVARO                      849
 #define TRAINER_EVERETT                     850
-#define TRAINER_RED                         851
-#define TRAINER_LEAF                        852
-#define TRAINER_BRENDAN_PLACEHOLDER         853
-#define TRAINER_MAY_PLACEHOLDER             854
+#define TRAINER_RED                         851 // visiting champion (ascension)
+#define TRAINER_LEAF                        852 // visiting champion (ascension)
+#define TRAINER_VISITOR_BLUE                853 // was TRAINER_BRENDAN_PLACEHOLDER (unused)
+#define TRAINER_VISITOR_LANCE               854 // was TRAINER_MAY_PLACEHOLDER (unused)
 #define TRAINER_WAGER_DEMO                  855
 #define TRAINER_ARENA_1                     856
 #define TRAINER_ARENA_2                     857
 #define TRAINER_ARENA_3                     858
 #define TRAINER_ARENA_4                     859
 #define TRAINER_ARENA_5                     860
+#define TRAINER_VISITOR_STEVEN              861
+#define TRAINER_VISITOR_WALLACE             862
+#define TRAINER_ASCENDED_ONE                863
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled
 //       MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space
 
-#define TRAINERS_COUNT_EMERALD     861
+#define TRAINERS_COUNT_EMERALD     864
 #define MAX_TRAINERS_COUNT_EMERALD 864
 
 #if IS_FRLG

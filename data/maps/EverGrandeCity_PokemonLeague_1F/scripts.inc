@@ -6,6 +6,7 @@ EverGrandeCity_PokemonLeague_1F_MapScripts::
 EverGrandeCity_PokemonLeague_1F_OnTransition:
 	setrespawn HEAL_LOCATION_EVER_GRANDE_CITY_POKEMON_LEAGUE
 	setflag FLAG_LANDMARK_POKEMON_LEAGUE
+	special Special_Ascension_SetupLeagueVisitor
 	call_if_unset FLAG_ENTERED_ELITE_FOUR, EverGrandeCity_PokemonLeague_1F_EventScript_GuardsBlockDoor
 	end
 

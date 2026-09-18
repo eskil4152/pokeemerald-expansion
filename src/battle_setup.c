@@ -1,4 +1,5 @@
 #include "global.h"
+#include "ascension.h"
 #include "data.h"
 #include "main.h"
 #include "battle.h"
@@ -722,7 +723,7 @@ static void CB2_EndScriptedWildBattle(void)
 
     if (IsPlayerDefeated(gBattleOutcome) == TRUE)
     {
-        if (CurrentBattlePyramidLocation() != PYRAMID_LOCATION_NONE)
+        if (CurrentBattlePyramidLocation() != PYRAMID_LOCATION_NONE || Ascension_IsGuardianBattle())
             SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
         else
             SetMainCallback2(CB2_WhiteOut);
@@ -2263,6 +2264,7 @@ static void CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum)
     if (!GetTrainerStructFromId(trainerNum)->overrideTrainer)
     {
         CreateNPCTrainerPartyFromTrainer(party, GetTrainerStructFromId(trainerNum));
+        Ascension_OnTrainerPartyCreated(party, trainerNum);
         return;
     }
 
@@ -2276,6 +2278,7 @@ static void CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum)
     if (tempTrainer.partySize == 0)
         tempTrainer.partySize = origTrainer->partySize;
     CreateNPCTrainerPartyFromTrainer(party, (const struct Trainer *)(&tempTrainer));
+    Ascension_OnTrainerPartyCreated(party, trainerNum);
 }
 
 void CreateTrainerPartyForPlayer(void)

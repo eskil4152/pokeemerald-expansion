@@ -18,6 +18,7 @@
 #include "constants/form_change_types.h"
 #include "apricorn_tree.h"
 #include "underground.h"
+#include "ascension.h"
 
 static void UpdatePerDay(struct Time *localTime);
 static void UpdatePerMinute(struct Time *localTime);
@@ -66,6 +67,7 @@ void DoDailyEvents(u32 daysSince)
     UpdateDaysPassedSinceFormChange(daysSince);
     DailyResetApricornTrees();
     Underground_DoDailyEvents(daysSince);
+    Ascension_DoDailyEvents(daysSince);
 }
 
 static void UpdatePerDay(struct Time *localTime)

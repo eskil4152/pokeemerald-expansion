@@ -1,4 +1,5 @@
 #include "global.h"
+#include "ascension.h"
 #include "battle.h"
 #include "battle_anim.h"
 #include "battle_ai_main.h"
@@ -5283,6 +5284,7 @@ static void HandleEndTurn_FinishBattle(void)
                 }
             }
         }
+        Ascension_OnBattleFinished();
 
         if (!(gBattleTypeFlags & (BATTLE_TYPE_LINK
                                   | BATTLE_TYPE_RECORDED_LINK

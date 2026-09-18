@@ -79,6 +79,7 @@
 #include "constants/underground.h"
 #include "constants/arena.h"
 #include "constants/quests.h"
+#include "constants/ascension.h"
 	.include "asm/macros.inc"
 	.include "asm/macros/event.inc"
 	.include "constants/constants.inc"
@@ -1746,3 +1747,5 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/scripts/underground.inc"
 	.include "data/maps/SandboxHub/scripts.inc"
 	.include "data/maps/UndergroundArena/scripts.inc"
+	.include "data/scripts/ascension.inc"
+	.include "data/maps/AscensionShrine/scripts.inc"

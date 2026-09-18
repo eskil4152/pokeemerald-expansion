@@ -590,6 +590,7 @@ extern const u16 gItemIconPalette_Shell[];
 extern const u32 gItemIcon_Shard[];
 extern const u16 gItemIconPalette_RedShard[];
 extern const u16 gItemIconPalette_BlueShard[];
+extern const u16 gItemIconPalette_AscensionShard[];
 extern const u16 gItemIconPalette_YellowShard[];
 extern const u16 gItemIconPalette_GreenShard[];
 extern const u32 gItemIcon_HeartScale[];

@@ -355,6 +355,7 @@ const u32 gItemIcon_Shard[] = INCGFX_U32("graphics/items/icons/shard.png", ".4bp
 const u16 gItemIconPalette_RedShard[] = INCGFX_U16("graphics/items/icon_palettes/red_shard.pal", ".gbapal");
 
 const u16 gItemIconPalette_BlueShard[] = INCGFX_U16("graphics/items/icon_palettes/blue_shard.pal", ".gbapal");
+const u16 gItemIconPalette_AscensionShard[] = INCGFX_U16("graphics/items/icon_palettes/ascension_shard.pal", ".gbapal");
 
 const u16 gItemIconPalette_YellowShard[] = INCGFX_U16("graphics/items/icon_palettes/yellow_shard.pal", ".gbapal");
 

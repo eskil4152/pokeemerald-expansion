@@ -16099,6 +16099,24 @@ const struct ItemInfo gItemsInfo[] =
         .iconPic = gItemIcon_PokeshiDoll,
         .iconPalette = gItemIconPalette_PokeshiDoll,
     },
+
+    [ITEM_ASCENSION_SHARD] =
+    {
+        .name = ITEM_NAME("Ascension Shard"),
+        .pluralName = ITEM_PLURAL_NAME("Ascension Shards"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "A fragment of the\n"
+            "divine. Offered at\n"
+            "the Shrine to ascend."),
+        .pocket = POCKET_ITEMS,
+        .sortType = ITEM_TYPE_SHARD,
+        .importance = 1,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_Shard,
+        .iconPalette = gItemIconPalette_AscensionShard,
+    },
 };
 
 #undef ITEM_NAME

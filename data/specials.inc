@@ -665,3 +665,14 @@ gSpecials::
 	def_special Special_Quest_SetStage
 	def_special Special_Quest_Complete
 	def_special Special_Quest_GetStage
+	def_special Special_Ascension_CheckRequirements
+	def_special Special_Ascension_StartGuardianBattle
+	def_special Special_Ascension_FinishGuardianBattle
+	def_special Special_Ascension_GetTrialState
+	def_special Special_Ascension_AdvanceRank
+	def_special Special_Ascension_BufferStatus
+	def_special Special_Ascension_SetupLeagueVisitor
+	def_special Special_Ascension_BufferVisitor
+	def_special Special_Ascension_OnVisitorBattle
+	def_special Special_Ascension_TryWeeklyBounty
+	def_special Special_Ascension_BufferRumour
