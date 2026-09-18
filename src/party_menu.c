@@ -53,6 +53,7 @@
 #include "pokemon_jump.h"
 #include "pokemon_storage_system.h"
 #include "pokemon_summary_screen.h"
+#include "pokemon_editor.h"
 #include "pokerus.h"
 #include "region_map.h"
 #include "reshow_battle_screen.h"
@@ -110,6 +111,7 @@ enum {
     MENU_CATALOG_MOWER,
     MENU_CHANGE_FORM,
     MENU_CHANGE_ABILITY,
+    MENU_EDIT,
     MENU_FIELD_MOVES
 };
 
@@ -185,7 +187,7 @@ struct PartyMenuInternal
     u32 spriteIdCancelPokeball:7;
     u32 messageId:14;
     u8 windowId[3];
-    u8 actions[8];
+    u8 actions[10];
     u8 numActions;
     // In vanilla Emerald, only the first 0xB0 hwords (0x160 bytes) are actually used.
     // However, a full 0x100 hwords (0x200 bytes) are allocated.
@@ -455,6 +457,8 @@ static void ShiftMoveSlot(struct BoxPokemon *, u8, u8);
 static void BlitBitmapToPartyWindow_LeftColumn(u8, u8, u8, u8, u8, bool8);
 static void BlitBitmapToPartyWindow_RightColumn(u8, u8, u8, u8, u8, bool8);
 static void CursorCb_Summary(u8);
+static void CursorCb_Edit(u8);
+static void CB2_ShowPokemonEditorFromParty(void);
 static void CursorCb_Switch(u8);
 static void CursorCb_Cancel1(u8);
 static void CursorCb_Item(u8);
@@ -2979,6 +2983,7 @@ static void SetPartyMonFieldSelectionActions(struct Pokemon *mons, u8 slotId)
         else
             AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_ITEM);
     }
+    AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_EDIT);
     AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_CANCEL1);
 }
 
@@ -3438,6 +3443,19 @@ static void FinishTwoMonAction(u8 taskId)
 #undef tSlot2Offset
 #undef tSlot1SlideDir
 #undef tSlot2SlideDir
+
+static void CursorCb_Edit(u8 taskId)
+{
+    PlaySE(SE_SELECT);
+    sPartyMenuInternal->exitCallback = CB2_ShowPokemonEditorFromParty;
+    Task_ClosePartyMenu(taskId);
+}
+
+static void CB2_ShowPokemonEditorFromParty(void)
+{
+    gLastViewedMonIndex = gPartyMenu.slotId;
+    ShowPokemonEditor(&gParties[B_TRAINER_PLAYER][gPartyMenu.slotId], CB2_ReturnToPartyMenuFromSummaryScreen);
+}
 
 static void CursorCb_Cancel1(u8 taskId)
 {
