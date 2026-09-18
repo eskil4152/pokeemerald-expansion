@@ -355,7 +355,8 @@ static void BuildNormalStartMenu(void)
     AddStartMenuAction(MENU_ACTION_SAVE);
     AddStartMenuAction(MENU_ACTION_OPTION);
     AddStartMenuAction(MENU_ACTION_SANDBOX);
-    AddStartMenuAction(MENU_ACTION_EXIT);
+    // No EXIT entry: B or Start closes the menu. With JOURNAL and SANDBOX the list
+    // would otherwise reach 10 entries and run off the bottom of the screen.
 }
 
 static void BuildDebugStartMenu(void)

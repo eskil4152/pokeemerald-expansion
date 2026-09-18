@@ -13,8 +13,9 @@ Eskil is a developer. No git or tooling handholding is needed. Pronouns: they/th
 - macOS, zsh. Repo at `/Users/eskil/Documents/Projects/pokemon-source-code/pokeemerald-expansion`.
 - Toolchain: devkitARM 16.1.0 at `/opt/devkitpro`. `DEVKITPRO` and `DEVKITARM` are exported in `~/.zshrc`; if a shell lacks them, `export DEVKITPRO=/opt/devkitpro DEVKITARM=/opt/devkitpro/devkitARM`.
 - Homebrew: libpng, pkg-config installed. `coreutils` is not installed (needed for `make check`).
-- Emulator: mGBA at `/Applications/mGBA.app`.
-- Git: `origin` is eskil4152/pokeemerald-expansion, `upstream` is rh-hideout/pokeemerald-expansion. `master` tracks upstream and stays clean; all work happens on branches.
+- Emulator: mGBA at `/Applications/mGBA.app`. Default keys: arrows, X = A, Z = B, Return = Start, Backspace = Select, A = L, S = R.
+- **macOS 27 toolchain workaround**: the selected developer dir is Xcode 26.6, whose linker cannot read the macOS 27 SDK, so host tools (e.g. `tools/mid2agb`) fail to link. Build with `DEVELOPER_DIR=/Library/Developer/CommandLineTools` exported (the Command Line Tools 27 link fine). Permanent alternatives: `sudo xcode-select -s /Library/Developer/CommandLineTools`, or updating Xcode to 27.
+- Git: `origin` is eskil4152/pokeemerald-expansion, `upstream` is rh-hideout/pokeemerald-expansion. `master` tracks upstream and stays clean; never merge into it without Eskil saying so. Features live on `feature/*` branches; `dev` integrates them.
 
 ## Commands
 
@@ -52,6 +53,8 @@ In game: Select on the title screen quickstarts a new game; hold R + Start in th
 
 ## Current state
 
-- 2026-09-17: Fork cloned, toolchain installed, first build succeeded, mGBA installed. Guide written on branch `docs/claude-guide`. No gameplay changes yet.
+- 2026-09-17: Fork cloned, toolchain installed, first build succeeded, mGBA installed. Guide written on branch `docs/claude-guide` (merged to master).
+- 2026-09-18: Features built on separate branches, each with a plan file in `claude-guide/features/`: sandbox menu, followers, wager battles, Pokémon editor, underground economy, quests, arena and hub. All manually tested by Eskil. Ascension designed (`FEATURE_ASCENSION.md`), not built.
+- 2026-09-18: `dev` branch merges every feature branch plus the ascension plan; EXIT removed from the Start menu. Master is untouched upstream plus the guide. Ascension work happens on top of `dev`.
 
 Update this section when work lands, one line per milestone with the date.
